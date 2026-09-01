@@ -1,36 +1,1494 @@
-<!doctype html>
-<html lang="es" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M 10 24 L 38 24 C 48 24, 52 12, 62 12 L 90 12'/%3E%3Cpath d='M 10 28 L 38 28 C 48 28, 52 16, 62 16 L 90 16'/%3E%3Cpath d='M 10 32 L 38 32 C 48 32, 52 20, 62 20 L 90 20'/%3E%3Cpath d='M 45 28 L 55 16'/%3E%3Cpath d='M 47 20 L 51 24'/%3E%3C/svg%3E" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Hytera IA | Automatización de Negocios de Alta Precisión</title>
+    <meta content="Agencia de automatización de IA para empresas que buscan precisión técnica y eficiencia operativa industrial." name="description"/>
+    <meta content="Hytera IA | Business Automation" property="og:title"/>
+    <meta content="Ingeniería de procesos y despliegue de IA de grado industrial." property="og:description"/>
+    <meta content="website" property="og:type"/>
     
-    <!-- Primary SEO Meta Tags -->
-    <title>Hytera IA | Automatización de Procesos e Inteligencia Artificial para Empresas</title>
-    <meta name="title" content="Hytera IA | Automatización de Procesos e Inteligencia Artificial para Empresas" />
-    <meta name="description" content="Escala tu negocio sin contratar más personal. En Hytera IA diseñamos flujos de trabajo inteligentes y agentes de IA con Make, Zapier y Voiceflow para automatizar CRM, Ventas y Soporte." />
+    <style>
+        @layer base {
+            html, body {
+                margin: 0;
+                padding: 0;
+                background-color: #131313;
+                overscroll-behavior: none;
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        
+        /* Smooth Scrolling and Scroll Snapping */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @media (min-width: 1024px) {
+            html {
+                scroll-snap-type: y mandatory;
+            }
+            section {
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+        }
+        
+        /* Interactive styles */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        /* Form corner animations */
+        .peer:focus ~ .form-highlight {
+            width: 100%;
+        }
+    </style>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "secondary": "#c8c6c5",
+                        "surface-dim": "#131313",
+                        "primary": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#4a4949",
+                        "surface": "#131313",
+                        "surface-container": "#1f2020",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#303030",
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#393939",
+                        "outline": "#8e9192",
+                        "on-secondary": "#313030",
+                        "on-tertiary": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary-container": "#636565",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-tint": "#c6c6c7",
+                        "tertiary-container": "#e5e2e1",
+                        "background": "#131313",
+                        "outline-variant": "#444748",
+                        "on-secondary-container": "#bab8b7",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-variant": "#353535",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-container-low": "#1b1c1c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "on-tertiary-container": "#656464",
+                        "primary-container": "#e2e2e2",
+                        "tertiary": "#ffffff",
+                        "on-primary": "#2f3131"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "16px",
+                        "xl": "80px",
+                        "xs": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Geist"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&amp;family=Geist:wght@400&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    
+    <!-- Add GSAP for floating & scroll triggered animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-background antialiased selection:bg-primary selection:text-on-primary">
+    
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-surface-container-highest transition-all duration-300">
+        <div class="h-20 max-w-container-max mx-auto px-md flex items-center justify-between">
+            <div class="flex items-center gap-xs cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <img alt="Logo" class="h-8 w-auto object-contain invert mix-blend-screen" src="assets/logo.png"/>
+                <span class="font-headline-md text-headline-md tracking-tighter uppercase text-primary">Hytera IA</span>
+            </div>
+            
+            <nav class="hidden lg:flex items-center gap-lg">
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-primary font-bold transition-colors" href="#inicio">Inicio</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#servicios">Servicios</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#metodologia">Metodología</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#faq">FAQ</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#contacto">Contacto</a>
+            </nav>
+            
+            <div class="flex items-center gap-md">
+                <a href="#contacto" class="hidden md:block bg-primary text-on-primary px-md py-xs text-label-mono font-label-mono uppercase tracking-widest hover:bg-surface-variant hover:text-primary transition-all">
+                    Agendar Auditoría
+                </a>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://hytera.ia/" />
-    <meta property="og:title" content="Hytera IA | Automatización de Procesos e Inteligencia Artificial" />
-    <meta property="og:description" content="Escala tu negocio sin contratar más personal. En Hytera IA diseñamos flujos de trabajo inteligentes y agentes de IA para automatizar CRM, Ventas y Soporte." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" />
+    <main class="w-full bg-background overflow-x-hidden">
+        
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex flex-col justify-center pb-xl pt-28 px-md md:px-lg lg:px-xl overflow-hidden" id="inicio">
+            <div class="absolute inset-0 z-0">
+                <canvas class="absolute inset-0 w-full h-full" id="particle-canvas"></canvas>
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10 pointer-events-none"></div>
+            </div>
+            
+            <!-- Floating Animated Cards (Visible on LG screens) -->
+            <div class="absolute inset-0 z-10 pointer-events-none max-w-container-max mx-auto hidden lg:block">
+                <div class="absolute top-[35%] right-[12%] bg-surface-container-lowest/80 backdrop-blur-sm border border-surface-container-highest px-md py-sm rounded-sm" id="float-card-1">
+                    <div class="flex flex-col gap-1">
+                        <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">Eficiencia</span>
+                        <span class="font-headline-md text-headline-md text-primary">+15 hrs</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-[25%] right-[22%] bg-surface-container-lowest/80 backdrop-blur-sm border border-surface-container-highest px-md py-sm rounded-sm" id="float-card-2">
+                    <div class="flex flex-col gap-1">
+                        <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">Flujos 24/7</span>
+                        <span class="font-headline-md text-headline-md text-primary">0 Errores Manuales</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-container-max mx-auto w-full relative z-20 flex flex-col items-start gap-lg mt-16 md:mt-0">
+                <div class="flex items-center gap-xs">
+                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                    <span class="font-label-mono text-label-mono uppercase tracking-widest text-primary">Sistemas Inteligentes</span>
+                </div>
+                <div class="flex flex-col gap-sm">
+                    <h1 class="font-display-lg text-4xl sm:text-6xl lg:text-display-lg text-primary max-w-4xl tracking-tighter text-balance">
+                        Hytera IA - <span class="text-on-surface-variant font-light block sm:inline">Arquitectura digital inteligente</span>
+                    </h1>
+                    <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant max-w-2xl mt-4">
+                        Optimizamos la operación de tu empresa mediante ingeniería de procesos, automatización de flujos de trabajo, desarrollo web de alto rendimiento y dashboards de inteligencia de negocios en tiempo real.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center gap-md mt-8 w-full sm:w-auto">
+                    <a class="w-full sm:w-auto px-lg py-sm bg-primary text-on-primary font-label-mono text-label-mono uppercase tracking-widest hover:bg-surface-variant hover:text-primary transition-all flex items-center justify-center gap-xs group border border-primary" href="#contacto">
+                        Agendar SESIÓN<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                    <a class="w-full sm:w-auto px-lg py-sm bg-transparent border border-outline-variant text-primary font-label-mono text-label-mono uppercase tracking-widest hover:bg-surface-container-highest transition-all flex items-center justify-center" href="#servicios">
+                        Ver Servicios
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://hytera.ia/" />
-    <meta property="twitter:title" content="Hytera IA | Automatización de Procesos e Inteligencia Artificial" />
-    <meta property="twitter:description" content="Escala tu negocio sin contratar más personal. En Hytera IA diseñamos flujos de trabajo inteligentes y agentes de IA para automatizar CRM, Ventas y Soporte." />
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" />
+        <!-- Services Section -->
+        <section class="py-xl px-md md:px-lg lg:px-xl bg-black relative flex flex-col justify-center min-h-screen border-t border-surface-container-highest" id="servicios">
+            <div class="max-w-container-max mx-auto w-full relative z-10">
+                <div class="flex flex-col gap-xs mb-6">
+                    <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">// 01 Capacidades</span>
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-lg">
+                        <!-- Title Column -->
+                        <div class="w-full lg:w-1/2">
+                            <h2 class="font-headline-lg text-4xl lg:text-headline-lg text-primary leading-tight">
+                                Arquitectura<br>Operativa
+                            </h2>
+                        </div>
+                        <!-- Paragraph Column -->
+                        <div class="w-full lg:w-1/2 lg:pl-12 flex justify-end">
+                            <p class="font-label-mono text-[10px] sm:text-xs text-on-surface-variant tracking-[0.2em] uppercase text-right leading-loose max-w-md">
+                                Soluciones<br>
+                                tecnológicas<br>
+                                diseñadas para<br>
+                                eliminar cuellos de<br>
+                                botella y escalar<br>
+                                operaciones<br>
+                                complejas sin<br>
+                                incrementar<br>
+                                headcount.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Google Fonts: Inter and Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-black text-white selection:bg-neutral-800 selection:text-white antialiased overflow-x-hidden">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+                <!-- Radial Orbit & Details Container -->
+                <div class="relative w-full flex flex-col lg:flex-row items-center justify-center gap-lg min-h-[580px] sm:min-h-[640px] overflow-visible reveal-on-scroll mt-2" id="services-interactive-container">
+                    <!-- Glow background -->
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,transparent_70%)] pointer-events-none z-0">
+                    </div>
+                    
+                    <!-- Left Panel (Orbit Container) -->
+                    <div class="w-full lg:w-full flex items-center justify-center transition-all duration-700 ease-in-out z-10" id="services-left-panel">
+                        <!-- Radial System Wrapper -->
+                        <div class="relative w-[580px] max-w-full h-[550px] sm:h-[600px] flex items-center justify-center" id="orbit-system-wrapper">
+                            <!-- Orbit Lines -->
+                            <div class="absolute w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] rounded-full border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.02)] pointer-events-none"></div>
+                            <div class="absolute w-[290px] h-[290px] sm:w-[490px] sm:h-[490px] rounded-full border border-dashed border-white/5 animate-spin pointer-events-none" style="animation-duration: 80s"></div>
+                            
+                            <!-- Central Node -->
+                            <div class="absolute z-20 flex flex-col items-center justify-center cursor-pointer group" id="center-hub-node">
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-black border border-white/30 flex flex-col items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.15)] relative transition-transform duration-300 group-hover:scale-105">
+                                    <div class="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-25"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-white mb-1 shadow-[0_0_8px_#ffffff]"></div>
+                                    <span class="font-mono text-xs font-black tracking-widest text-white">HYTERA</span>
+                                    <span class="font-mono text-[9px] tracking-widest text-neutral-400">IA</span>
+                                </div>
+                            </div>
+
+                            <!-- Orbiting Node 1 -->
+                            <div class="absolute cursor-pointer transition-all duration-300 flex flex-col items-center justify-center select-none" id="orbit-node-1" data-id="1">
+                                <div class="absolute rounded-full -inset-2 bg-white/10 opacity-0 scale-125 transition-all duration-300 node-highlight"></div>
+                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle">
+                                    <span class="material-symbols-outlined text-[22px] sm:text-[28px]">schema</span>
+                                </div>
+                                <div class="absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 node-label">
+                                    Workflows
+                                </div>
+                            </div>
+
+                            <!-- Orbiting Node 2 -->
+                            <div class="absolute cursor-pointer transition-all duration-300 flex flex-col items-center justify-center select-none" id="orbit-node-2" data-id="2">
+                                <div class="absolute rounded-full -inset-2 bg-white/10 opacity-0 scale-125 transition-all duration-300 node-highlight"></div>
+                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle">
+                                    <span class="material-symbols-outlined text-[22px] sm:text-[28px]">public</span>
+                                </div>
+                                <div class="absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 node-label">
+                                    Páginas Web
+                                </div>
+                            </div>
+
+                            <!-- Orbiting Node 3 -->
+                            <div class="absolute cursor-pointer transition-all duration-300 flex flex-col items-center justify-center select-none" id="orbit-node-3" data-id="3">
+                                <div class="absolute rounded-full -inset-2 bg-white/10 opacity-0 scale-125 transition-all duration-300 node-highlight"></div>
+                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle">
+                                    <span class="material-symbols-outlined text-[22px] sm:text-[28px]">dashboard</span>
+                                </div>
+                                <div class="absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 node-label">
+                                    Dashboards
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel (Card Container) -->
+                    <div class="w-full lg:w-0 h-0 lg:h-auto opacity-0 pointer-events-none flex items-center justify-center lg:justify-start lg:pl-16 transition-all duration-700 ease-in-out z-20 overflow-visible" id="services-right-panel">
+                        <!-- Card 1 -->
+                        <div class="w-full max-w-[480px] bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white rounded-sm p-md sm:p-lg hidden relative service-detail-card" id="detail-card-1">
+                            <div class="flex justify-between items-center mb-xs sm:mb-sm">
+                                <span class="text-[9px] tracking-widest font-mono text-neutral-300 border border-white/20 rounded-full px-2.5 py-0.5 uppercase">Operaciones</span>
+                                <span class="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-[12px] text-white">auto_awesome</span> ONLINE
+                                </span>
+                            </div>
+                            <h3 class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white mt-1">Creación de Workflows</h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 mb-3 font-mono">Automatización & Conectividad</p>
+                            <div class="text-xs sm:text-sm lg:text-[15px] text-neutral-300 space-y-4">
+                                <p class="leading-relaxed">Automatizamos e interconectamos tus herramientas empresariales (CRMs, bases de datos y mensajería) para eliminar cuellos de botella y erradicar tareas repetitivas.</p>
+                                <div class="space-y-1.5 pt-3 border-t border-white/10">
+                                    <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-2">Capacidades Clave:</span>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Sincronización multi-plataforma</span></div>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Triggers y webhooks 24/7</span></div>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Eliminación de error manual</span></div>
+                                </div>
+                                <div class="pt-3">
+                                    <a href="#contacto" class="w-full h-11 text-xs sm:text-sm bg-white text-black hover:bg-neutral-200 font-semibold rounded-sm flex items-center justify-center gap-2 transition-colors">
+                                        Solicitar Diagnóstico <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="w-full max-w-[480px] bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white rounded-sm p-md sm:p-lg hidden relative service-detail-card" id="detail-card-2">
+                            <div class="flex justify-between items-center mb-xs sm:mb-sm">
+                                <span class="text-[9px] tracking-widest font-mono text-neutral-300 border border-white/20 rounded-full px-2.5 py-0.5 uppercase">Desarrollo</span>
+                                <span class="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-[12px] text-white">auto_awesome</span> ONLINE
+                                </span>
+                            </div>
+                            <h3 class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white mt-1">Creación de Páginas Web</h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 mb-3 font-mono">Presencia & Conversión Digital</p>
+                            <div class="text-xs sm:text-sm lg:text-[15px] text-neutral-300 space-y-4">
+                                <p class="leading-relaxed">Desarrollamos sitios web y landing pages ultra-rápidos con diseño minimalista y conexión directa a tus flujos automatizados de captación y ventas.</p>
+                                <div class="space-y-1.5 pt-3 border-t border-white/10">
+                                    <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-2">Capacidades Clave:</span>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Arquitectura moderna y responsive</span></div>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Optimización de conversión UX</span></div>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Integración con formularios y CRM</span></div>
+                                </div>
+                                <div class="pt-3">
+                                    <a href="#contacto" class="w-full h-11 text-xs sm:text-sm bg-white text-black hover:bg-neutral-200 font-semibold rounded-sm flex items-center justify-center gap-2 transition-colors">
+                                        Solicitar Diagnóstico <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="w-full max-w-[480px] bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white rounded-sm p-md sm:p-lg hidden relative service-detail-card" id="detail-card-3">
+                            <div class="flex justify-between items-center mb-xs sm:mb-sm">
+                                <span class="text-[9px] tracking-widest font-mono text-neutral-300 border border-white/20 rounded-full px-2.5 py-0.5 uppercase">Datos & KPIs</span>
+                                <span class="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-[12px] text-white">auto_awesome</span> ONLINE
+                                </span>
+                            </div>
+                            <h3 class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white mt-1">Desarrollo de Dashboards</h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 mb-3 font-mono">Inteligencia & Control en Tiempo Real</p>
+                            <div class="text-xs sm:text-sm lg:text-[15px] text-neutral-300 space-y-4">
+                                <p class="leading-relaxed">Modelamos y centralizamos las métricas críticas de tu negocio en paneles interactivos para facilitar la toma de decisiones estratégicas instantáneas.</p>
+                                <div class="space-y-1.5 pt-3 border-t border-white/10">
+                                    <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-2">Capacidades Clave:</span>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Consolidación de múltiples fuentes</span></div>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Visualización clara de KPIs</span></div>
+                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Reportes automatizados</span></div>
+                                </div>
+                                <div class="pt-3">
+                                    <a href="#contacto" class="w-full h-11 text-xs sm:text-sm bg-white text-black hover:bg-neutral-200 font-semibold rounded-sm flex items-center justify-center gap-2 transition-colors">
+                                        Solicitar Diagnóstico <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nosotros Section (Aliado Tecnológico & Acompañamiento) -->
+        <section class="py-xl px-md md:px-lg lg:px-xl bg-background relative flex flex-col justify-center min-h-screen border-t border-surface-container-highest overflow-hidden" id="nosotros">
+            <!-- Ambient Glow Background -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <div class="max-w-container-max mx-auto w-full relative z-10">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-lg mb-16">
+                    <div class="flex flex-col gap-xs">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                            <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">// 02 Tu Aliado Estratégico</span>
+                        </div>
+                        <h2 class="font-headline-lg text-3xl sm:text-headline-lg text-primary leading-tight">
+                            Más que un proveedor,<br>tu aliado tecnológico.
+                        </h2>
+                    </div>
+                    <div class="max-w-md lg:text-right">
+                        <p class="font-body-md text-base text-on-surface-variant leading-relaxed">
+                            En Hytera IA no entregamos software y nos vamos. Nos integramos como una extensión de tu equipo, acompañándote paso a paso en cada etapa de tu transformación digital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3 Pillars Grid with Glassmorphism & Hover Animations -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-lg reveal-on-scroll">
+                    
+                    <!-- Pillar 1: Acompañamiento Cercano -->
+                    <div class="border border-white/10 p-8 bg-[#0a0a0a]/80 backdrop-blur-xl rounded-xl relative group hover:border-white/40 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all duration-500 pointer-events-none"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-black border border-white/20 flex items-center justify-center mb-6 group-hover:border-white transition-colors duration-300 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                                <span class="material-symbols-outlined text-[28px]">handshake</span>
+                            </div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Cultura de Alianza</span>
+                            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Acompañamiento Cercano</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed font-sans font-normal">
+                                Trabajamos mano a mano con tu equipo. Desde el diagnóstico inicial hasta la operación diaria, nos aseguramos de que cada integrante comprenda, aproveche y disfrute la tecnología.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-mono text-neutral-300">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            <span>Integración humana sin fricción</span>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2: Soluciones a la Medida -->
+                    <div class="border border-white/10 p-8 bg-[#0a0a0a]/80 backdrop-blur-xl rounded-xl relative group hover:border-white/40 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all duration-500 pointer-events-none"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-black border border-white/20 flex items-center justify-center mb-6 group-hover:border-white transition-colors duration-300 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                                <span class="material-symbols-outlined text-[28px]">design_services</span>
+                            </div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Diseño a la Medida</span>
+                            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Soluciones Personalizadas</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed font-sans font-normal">
+                                No creemos en paquetes genéricos prefabricados. Escuchamos tus metas y desafíos únicos para diseñar arquitecturas digitales ajustadas exactamente a tu modelo de negocio.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-mono text-neutral-300">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            <span>Flexibilidad &amp; Adaptabilidad total</span>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3: Compromiso & Evolución -->
+                    <div class="border border-white/10 p-8 bg-[#0a0a0a]/80 backdrop-blur-xl rounded-xl relative group hover:border-white/40 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] overflow-hidden flex flex-col justify-between">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all duration-500 pointer-events-none"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-lg bg-black border border-white/20 flex items-center justify-center mb-6 group-hover:border-white transition-colors duration-300 text-white shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                                <span class="material-symbols-outlined text-[28px]">trending_up</span>
+                            </div>
+                            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-2">Visión a Largo Plazo</span>
+                            <h3 class="text-xl font-bold text-white mb-3 tracking-tight">Evolución Continua</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed font-sans font-normal">
+                                Tu crecimiento es nuestra prioridad. Monitoreamos y optimizamos constantemente tus flujos de automatización para que tu empresa siempre esté a la vanguardia.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-mono text-neutral-300">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            <span>Optimización y soporte constante</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Partner Commitment Metrics Grid -->
+                <div class="mt-12 border-t border-white/10 pt-10 grid grid-cols-1 md:grid-cols-3 gap-6 font-label-mono text-label-mono text-center reveal-on-scroll">
+                    <div class="p-5 border border-white/10 bg-[#0e0e0e]/90 rounded-lg flex flex-col gap-1.5 hover:border-white/30 transition-colors">
+                        <span class="text-white text-xl sm:text-2xl font-bold font-mono">100%</span>
+                        <span class="text-neutral-400 text-xs font-sans">Acompañamiento Personalizado</span>
+                    </div>
+                    <div class="p-5 border border-white/10 bg-[#0e0e0e]/90 rounded-lg flex flex-col gap-1.5 hover:border-white/30 transition-colors">
+                        <span class="text-white text-xl sm:text-2xl font-bold font-mono">0%</span>
+                        <span class="text-neutral-400 text-xs font-sans">Fricción en Adopción</span>
+                    </div>
+                    <div class="p-5 border border-white/10 bg-[#0e0e0e]/90 rounded-lg flex flex-col gap-1.5 hover:border-white/30 transition-colors">
+                        <span class="text-white text-xl sm:text-2xl font-bold font-mono">100%</span>
+                        <span class="text-neutral-400 text-xs font-sans">Transparencia &amp; Confianza</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section class="py-xl px-md md:px-lg lg:px-xl relative flex flex-col justify-center min-h-screen border-t border-surface-container-highest bg-black overflow-hidden" id="metodologia">
+            <!-- Glow background -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,transparent_70%)] pointer-events-none z-0"></div>
+
+            <div class="max-w-container-max mx-auto w-full relative z-10" x-data="{ activeStep: 1 }">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-md mb-12">
+                    <div class="flex flex-col gap-xs">
+                        <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">// 03 Flujo de Ingeniería</span>
+                        <h2 class="font-headline-lg text-3xl sm:text-headline-lg text-primary mt-2 leading-tight">
+                            Metodología de Implementación
+                        </h2>
+                    </div>
+                    <p class="font-body-md text-sm sm:text-body-md text-on-surface-variant max-w-md lg:text-right">
+                        Transformamos requerimientos complejos en arquitecturas deterministas mediante un proceso riguroso en 3 fases orientadas a resultados.
+                    </p>
+                </div>
+
+                <!-- Interactive Pipeline Stepper Bar (Desktop) -->
+                <div class="hidden md:flex items-center justify-between mb-10 relative px-4 z-10">
+                    <!-- Background Connector Line -->
+                    <div class="absolute top-1/2 left-16 right-16 h-[1px] bg-white/10 -translate-y-1/2 z-0"></div>
+                    <!-- Active Glowing Connector Line -->
+                    <div class="absolute top-1/2 left-16 h-[1px] bg-gradient-to-r from-white via-neutral-300 to-white -translate-y-1/2 z-0 transition-all duration-700 ease-in-out"
+                         :style="activeStep === 1 ? 'width: 0%' : (activeStep === 2 ? 'width: 50%' : 'width: calc(100% - 8rem)')"></div>
+
+                    <!-- Step 1 Button -->
+                    <button @click="activeStep = 1" 
+                            class="relative z-10 flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-500 font-mono text-xs tracking-wider uppercase"
+                            :class="activeStep === 1 ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] scale-105' : 'bg-[#0a0a0a] text-neutral-400 border-white/10 hover:border-white/30'">
+                        <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px]" :class="activeStep === 1 ? 'bg-black text-white' : 'bg-neutral-800 text-neutral-300'">01</span>
+                        <span>Auditoría &amp; Mapeo</span>
+                    </button>
+
+                    <!-- Step 2 Button -->
+                    <button @click="activeStep = 2" 
+                            class="relative z-10 flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-500 font-mono text-xs tracking-wider uppercase"
+                            :class="activeStep === 2 ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] scale-105' : 'bg-[#0a0a0a] text-neutral-400 border-white/10 hover:border-white/30'">
+                        <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px]" :class="activeStep === 2 ? 'bg-black text-white' : 'bg-neutral-800 text-neutral-300'">02</span>
+                        <span>Arquitectura &amp; Prototipado</span>
+                    </button>
+
+                    <!-- Step 3 Button -->
+                    <button @click="activeStep = 3" 
+                            class="relative z-10 flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all duration-500 font-mono text-xs tracking-wider uppercase"
+                            :class="activeStep === 3 ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] scale-105' : 'bg-[#0a0a0a] text-neutral-400 border-white/10 hover:border-white/30'">
+                        <span class="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[11px]" :class="activeStep === 3 ? 'bg-black text-white' : 'bg-neutral-800 text-neutral-300'">03</span>
+                        <span>Despliegue &amp; QA</span>
+                    </button>
+                </div>
+
+                <!-- Main Split Layout Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Left Column: Interactive Step Cards (7 cols) -->
+                    <div class="lg:col-span-7 flex flex-col gap-4">
+                        
+                        <!-- Step 1 Card -->
+                        <div @click="activeStep = 1" 
+                             class="p-6 sm:p-7 rounded-xl border transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col gap-4 group"
+                             :class="activeStep === 1 ? 'bg-[#111111]/90 border-white/40 shadow-[0_10px_35px_rgba(255,255,255,0.06)]' : 'bg-[#0a0a0a]/70 border-white/10 opacity-70 hover:opacity-100 hover:border-white/25'">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-xs tracking-widest text-primary uppercase font-bold flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full" :class="activeStep === 1 ? 'bg-white animate-ping' : 'bg-neutral-600'"></span>
+                                    PASO 01 // AUDITORÍA TÉCNICA
+                                </span>
+                                <span class="text-[10px] font-mono px-3 py-0.5 rounded-full border border-white/10 text-neutral-400 bg-black/40 uppercase">Fase 1</span>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Auditoría Técnica &amp; Mapeo de Flujos</h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                                Mapeo exhaustivo de la infraestructura de datos existente, detección de cuellos de botella operativos y definición de la matriz de viabilidad.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-white/10 text-xs font-mono text-neutral-300">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Mapeo de arquitectura actual</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Detección de bottlenecks</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Análisis de APIs &amp; Permisos</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Hoja de ruta &amp; ROI estimado</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 Card -->
+                        <div @click="activeStep = 2" 
+                             class="p-6 sm:p-7 rounded-xl border transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col gap-4 group"
+                             :class="activeStep === 2 ? 'bg-[#111111]/90 border-white/40 shadow-[0_10px_35px_rgba(255,255,255,0.06)]' : 'bg-[#0a0a0a]/70 border-white/10 opacity-70 hover:opacity-100 hover:border-white/25'">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-xs tracking-widest text-primary uppercase font-bold flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full" :class="activeStep === 2 ? 'bg-white animate-ping' : 'bg-neutral-600'"></span>
+                                    PASO 02 // DISEÑO DE ARQUITECTURA
+                                </span>
+                                <span class="text-[10px] font-mono px-3 py-0.5 rounded-full border border-white/10 text-neutral-400 bg-black/40 uppercase">Fase 2</span>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Diseño de Arquitectura &amp; Prototipado</h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                                Diseño modular de diagramas lógicos, definición de esquemas de bases de datos y prototipado interactivo antes de la escritura del código.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-white/10 text-xs font-mono text-neutral-300">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Diagramas de flujo lógicos</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Modelado de base de datos</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Prototipado en Sandbox</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Definición de SLAs &amp; Failover</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 Card -->
+                        <div @click="activeStep = 3" 
+                             class="p-6 sm:p-7 rounded-xl border transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col gap-4 group"
+                             :class="activeStep === 3 ? 'bg-[#111111]/90 border-white/40 shadow-[0_10px_35px_rgba(255,255,255,0.06)]' : 'bg-[#0a0a0a]/70 border-white/10 opacity-70 hover:opacity-100 hover:border-white/25'">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-xs tracking-widest text-primary uppercase font-bold flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full" :class="activeStep === 3 ? 'bg-white animate-ping' : 'bg-neutral-600'"></span>
+                                    PASO 03 // DESPLIEGUE &amp; PRODUCCIÓN
+                                </span>
+                                <span class="text-[10px] font-mono px-3 py-0.5 rounded-full border border-white/10 text-neutral-400 bg-black/40 uppercase">Fase 3</span>
+                            </div>
+                            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight">Despliegue &amp; Producción Zero-Downtime</h3>
+                            <p class="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                                Ejecución por fases en entornos seguros de pruebas, pruebas de estrés de carga máxima y pase a producción sin interrupción del servicio.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-3 border-t border-white/10 text-xs font-mono text-neutral-300">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Pruebas de estrés &amp; Carga</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Despliegue Zero-Downtime</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Monitoreo en tiempo real</div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined text-[15px] text-white">check_circle</span> Handover &amp; Capacitación</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Interactive Visual Sandbox Monitor (5 cols) -->
+                    <div class="lg:col-span-5 flex flex-col h-full">
+                        
+                        <!-- Panel Container -->
+                        <div class="bg-[#0c0c0c] border border-white/15 rounded-xl p-6 sm:p-7 relative shadow-[0_30px_70px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col justify-between min-h-[440px] h-full">
+                            <!-- Background Grid Texture -->
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,transparent_70%)] pointer-events-none z-0"></div>
+
+                            <!-- Visualizer View 1 (Step 1) -->
+                            <div x-show="activeStep === 1" 
+                                 x-transition:enter="transition ease-out duration-400 transform"
+                                 x-transition:enter-start="opacity-0 translate-y-4"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 class="flex flex-col justify-between h-full relative z-10 gap-6">
+                                
+                                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></div>
+                                        <span class="font-mono text-xs uppercase tracking-wider text-white font-bold">RADAR AUDITORÍA v2.4</span>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-neutral-400 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full">ESTADO: ESCANEANDO</span>
+                                </div>
+
+                                <!-- Dynamic Radar graphic -->
+                                <div class="relative w-full h-44 flex items-center justify-center my-2">
+                                    <div class="absolute w-40 h-40 rounded-full border border-white/10 animate-ping opacity-20"></div>
+                                    <div class="absolute w-36 h-36 rounded-full border border-white/20"></div>
+                                    <div class="absolute w-24 h-24 rounded-full border border-dashed border-white/30 animate-spin" style="animation-duration: 15s"></div>
+                                    <div class="w-12 h-12 rounded-full bg-white/10 border border-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                                        <span class="material-symbols-outlined text-[20px] text-white">search</span>
+                                    </div>
+                                    <div class="absolute top-4 left-6 text-[10px] font-mono text-neutral-400 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span> CRM_DB: OK
+                                    </div>
+                                    <div class="absolute bottom-4 right-6 text-[10px] font-mono text-neutral-400 flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span> API_GATEWAY: AUDITED
+                                    </div>
+                                </div>
+
+                                <!-- Metrics & Logs -->
+                                <div class="space-y-3 pt-2">
+                                    <div class="grid grid-cols-2 gap-3 text-center">
+                                        <div class="bg-black/60 border border-white/10 p-2.5 rounded">
+                                            <span class="text-[10px] font-mono text-neutral-400 block">Endpoints</span>
+                                            <span class="text-sm font-mono font-bold text-white">48 / 48 Ok</span>
+                                        </div>
+                                        <div class="bg-black/60 border border-white/10 p-2.5 rounded">
+                                            <span class="text-[10px] font-mono text-neutral-400 block">Viabilidad</span>
+                                            <span class="text-sm font-mono font-bold text-white">96.4% Alta</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-black/80 border border-white/10 rounded p-3 font-mono text-[11px] text-neutral-300 space-y-1">
+                                        <div class="text-neutral-400">&gt; SCANNING DATA FLOWS... DONE</div>
+                                        <div class="text-white">&gt; 14 BOTTLENECKS DETECTED &amp; MAPPED</div>
+                                        <div class="text-neutral-400">&gt; MATRIZ TÉCNICA GENERADA CORRECTAMENTE</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Visualizer View 2 (Step 2) -->
+                            <div x-show="activeStep === 2" 
+                                 x-transition:enter="transition ease-out duration-400 transform"
+                                 x-transition:enter-start="opacity-0 translate-y-4"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 class="flex flex-col justify-between h-full relative z-10 gap-6">
+                                
+                                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></div>
+                                        <span class="font-mono text-xs uppercase tracking-wider text-white font-bold">ARQUITECTURA NODE v3.0</span>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-neutral-400 bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full">ESTADO: PROTOTIPANDO</span>
+                                </div>
+
+                                <!-- Node blueprint graphic -->
+                                <div class="relative w-full h-44 flex items-center justify-between px-2 my-2">
+                                    <!-- Node 1 -->
+                                    <div class="flex flex-col items-center gap-1 z-10">
+                                        <div class="w-10 h-10 rounded-lg bg-black border border-white/40 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[18px] text-white">database</span>
+                                        </div>
+                                        <span class="text-[9px] font-mono text-neutral-400">INPUT DATA</span>
+                                    </div>
+                                    <!-- Connecting Animated Line -->
+                                    <div class="flex-1 h-[2px] bg-neutral-800 relative mx-2">
+                                        <div class="absolute inset-y-0 left-0 bg-white w-1/3 animate-[pulse_1.5s_infinite]"></div>
+                                    </div>
+                                    <!-- Node 2 -->
+                                    <div class="flex flex-col items-center gap-1 z-10">
+                                        <div class="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                                            <span class="material-symbols-outlined text-[22px]">account_tree</span>
+                                        </div>
+                                        <span class="text-[9px] font-mono text-white font-bold">PIPELINE IA</span>
+                                    </div>
+                                    <!-- Connecting Animated Line -->
+                                    <div class="flex-1 h-[2px] bg-neutral-800 relative mx-2">
+                                        <div class="absolute inset-y-0 right-0 bg-white w-1/3 animate-[pulse_1.5s_infinite]"></div>
+                                    </div>
+                                    <!-- Node 3 -->
+                                    <div class="flex flex-col items-center gap-1 z-10">
+                                        <div class="w-10 h-10 rounded-lg bg-black border border-white/40 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[18px] text-white">dashboard</span>
+                                        </div>
+                                        <span class="text-[9px] font-mono text-neutral-400">OUTPUT API</span>
+                                    </div>
+                                </div>
+
+                                <!-- Metrics & Logs -->
+                                <div class="space-y-3 pt-2">
+                                    <div class="grid grid-cols-2 gap-3 text-center">
+                                        <div class="bg-black/60 border border-white/10 p-2.5 rounded">
+                                            <span class="text-[10px] font-mono text-neutral-400 block">Latencia Objetivo</span>
+                                            <span class="text-sm font-mono font-bold text-white">&lt; 85ms</span>
+                                        </div>
+                                        <div class="bg-black/60 border border-white/10 p-2.5 rounded">
+                                            <span class="text-[10px] font-mono text-neutral-400 block">Pruebas Lógicas</span>
+                                            <span class="text-sm font-mono font-bold text-white">100% Pasadas</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-black/80 border border-white/10 rounded p-3 font-mono text-[11px] text-neutral-300 space-y-1">
+                                        <div class="text-neutral-400">&gt; BUILDING WORKFLOW BLUEPRINT... OK</div>
+                                        <div class="text-white">&gt; VALIDATING FAILOVER SCHEMAS... OK</div>
+                                        <div class="text-neutral-400">&gt; PROTOTIPO APROBADO PARA DESPLIEGUE</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Visualizer View 3 (Step 3) -->
+                            <div x-show="activeStep === 3" 
+                                 x-transition:enter="transition ease-out duration-400 transform"
+                                 x-transition:enter-start="opacity-0 translate-y-4"
+                                 x-transition:enter-end="opacity-100 translate-y-0"
+                                 class="flex flex-col justify-between h-full relative z-10 gap-6">
+                                
+                                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></div>
+                                        <span class="font-mono text-xs uppercase tracking-wider text-white font-bold">CLUSTER EN PRODUCCIÓN</span>
+                                    </div>
+                                    <span class="text-[10px] font-mono text-white bg-white/10 border border-white/30 px-2.5 py-0.5 rounded-full">SLA 99.99% ONLINE</span>
+                                </div>
+
+                                <!-- Status gauge graphic -->
+                                <div class="relative w-full h-44 flex flex-col items-center justify-center gap-3 my-2">
+                                    <div class="flex items-center gap-2 text-white">
+                                        <span class="material-symbols-outlined text-[36px]">rocket_launch</span>
+                                        <span class="text-2xl font-bold font-mono">LIVE / PRODUCCIÓN</span>
+                                    </div>
+                                    <!-- Animated Waveform bars -->
+                                    <div class="flex items-end gap-1.5 h-12">
+                                        <div class="w-2 bg-white rounded-full animate-[pulse_1s_infinite]"></div>
+                                        <div class="w-2 bg-white rounded-full h-8 animate-[pulse_1.2s_infinite]"></div>
+                                        <div class="w-2 bg-white rounded-full h-12 animate-[pulse_0.8s_infinite]"></div>
+                                        <div class="w-2 bg-white rounded-full h-6 animate-[pulse_1.4s_infinite]"></div>
+                                        <div class="w-2 bg-white rounded-full h-10 animate-[pulse_1.1s_infinite]"></div>
+                                        <div class="w-2 bg-white rounded-full h-7 animate-[pulse_1.3s_infinite]"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Metrics & Logs -->
+                                <div class="space-y-3 pt-2">
+                                    <div class="grid grid-cols-2 gap-3 text-center">
+                                        <div class="bg-black/60 border border-white/10 p-2.5 rounded">
+                                            <span class="text-[10px] font-mono text-neutral-400 block">Downtime</span>
+                                            <span class="text-sm font-mono font-bold text-white">0.00 Segundos</span>
+                                        </div>
+                                        <div class="bg-black/60 border border-white/10 p-2.5 rounded">
+                                            <span class="text-[10px] font-mono text-neutral-400 block">Monitoreo</span>
+                                            <span class="text-sm font-mono font-bold text-white">24/7 Activo</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-black/80 border border-white/10 rounded p-3 font-mono text-[11px] text-neutral-300 space-y-1">
+                                        <div class="text-neutral-400">&gt; RUNNING QA STRESS TESTS... PASSED</div>
+                                        <div class="text-white">&gt; ZERO-DOWNTIME SWAP EXECUTED</div>
+                                        <div class="text-white font-bold">&gt; SISTEMA OPERATIVO Y MONITOREADO EN TIEMPO REAL</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-xl px-md md:px-lg lg:px-xl bg-surface-container-lowest relative border-t border-surface-container-highest flex flex-col justify-center min-h-screen" id="faq">
+            <div class="max-w-3xl mx-auto w-full relative z-10">
+                <div class="flex flex-col gap-xs mb-lg text-center items-center">
+                    <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">// 04 Consultas</span>
+                    <h2 class="font-headline-lg text-3xl sm:text-headline-lg text-primary mt-2">Preguntas Frecuentes</h2>
+                </div>
+                
+                <div class="flex flex-col reveal-on-scroll" x-data="{ active: null }">
+                    <!-- FAQ 1 -->
+                    <div class="border-b border-surface-container-highest">
+                        <button @click="active = active === 1 ? null : 1" class="w-full py-md flex justify-between items-center text-left group">
+                            <span class="font-headline-md text-base sm:text-headline-md text-primary group-hover:text-on-surface-variant transition-colors">¿Qué procesos pueden automatizarse en mi empresa?</span>
+                            <span :class="{'rotate-180': active === 1}" class="material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="pb-md" hidden="" style="display: none; height: 0px; overflow: hidden;" x-collapse="" x-show="active === 1">
+                            <p class="font-body-md text-sm sm:text-body-md text-on-surface-variant leading-relaxed">Prácticamente cualquier proceso repetitivo basado en reglas lógicas. Esto incluye onboarding de clientes, consolidación de facturación, sincronización de leads entre marketing y ventas, actualización de inventarios, y generación de reportes operativos cruzando datos de múltiples plataformas.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div class="border-b border-surface-container-highest">
+                        <button @click="active = active === 2 ? null : 2" class="w-full py-md flex justify-between items-center text-left group">
+                            <span class="font-headline-md text-base sm:text-headline-md text-primary group-hover:text-on-surface-variant transition-colors">¿Cuánto tiempo toma implementar una solución?</span>
+                            <span :class="{'rotate-180': active === 2}" class="material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="pb-md" hidden="" style="display: none; height: 0px; overflow: hidden;" x-collapse="" x-show="active === 2">
+                            <p class="font-body-md text-sm sm:text-body-md text-on-surface-variant leading-relaxed">Depende de la complejidad. Automatizaciones simples (ej. conexión CRM a Email) toman 1-2 semanas. Desarrollos web complejos o dashboards con múltiples fuentes de datos pueden requerir de 4 a 8 semanas, siguiendo nuestra metodología de auditoría, prototipado y QA exhaustivo.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div class="border-b border-surface-container-highest">
+                        <button @click="active = active === 3 ? null : 3" class="w-full py-md flex justify-between items-center text-left group">
+                            <span class="font-headline-md text-base sm:text-headline-md text-primary group-hover:text-on-surface-variant transition-colors">¿Cómo garantizan la seguridad y privacidad de nuestros datos?</span>
+                            <span :class="{'rotate-180': active === 3}" class="material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="pb-md" hidden="" style="display: none; height: 0px; overflow: hidden;" x-collapse="" x-show="active === 3">
+                            <p class="font-body-md text-sm sm:text-body-md text-on-surface-variant leading-relaxed">Operamos bajo estrictos estándares de seguridad. Firmamos un Acuerdo de Confidencialidad (NDA) antes de iniciar cualquier auditoría. Las automatizaciones utilizan APIs oficiales mediante OAuth 2.0 y no almacenamos sus datos sensibles en nuestros servidores, actuamos únicamente como conducto de procesamiento (data pipeline).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div class="border-b border-surface-container-highest">
+                        <button @click="active = active === 4 ? null : 4" class="w-full py-md flex justify-between items-center text-left group">
+                            <span class="font-headline-md text-base sm:text-headline-md text-primary group-hover:text-on-surface-variant transition-colors">¿Mi equipo necesita conocimientos técnicos para operar el sistema?</span>
+                            <span :class="{'rotate-180': active === 4}" class="material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="pb-md" hidden="" style="display: none; height: 0px; overflow: hidden;" x-collapse="" x-show="active === 4">
+                            <p class="font-body-md text-sm sm:text-body-md text-on-surface-variant leading-relaxed">No. Diseñamos nuestras soluciones para que operen en segundo plano de manera invisible o a través de interfaces (dashboards/portales) altamente intuitivas. Además, proporcionamos documentación técnica y una sesión de handover para que su equipo operativo sepa monitorear los resultados sin requerir habilidades de programación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-xl px-md md:px-lg lg:px-xl bg-black relative flex flex-col justify-center min-h-screen border-t border-surface-container-highest" id="contacto">
+            <!-- Background Noise -->
+            <div class="absolute inset-0 pointer-events-none opacity-10">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <filter id="noiseFilter">
+                        <feTurbulence baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" type="fractalNoise"></feTurbulence>
+                    </filter>
+                    <rect filter="url(#noiseFilter)" height="100%" width="100%"></rect>
+                </svg>
+            </div>
+            
+            <div class="w-full max-w-container-max mx-auto relative z-10 flex flex-col lg:flex-row gap-xl items-center">
+                <!-- Left Column: Info & Status -->
+                <div class="w-full lg:w-5/12 flex flex-col gap-lg order-2 lg:order-1">
+                    <div class="flex flex-col gap-sm">
+                        <div class="flex items-center gap-xs">
+                            <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                            <span class="font-label-mono text-label-mono text-neutral-400 uppercase tracking-widest">SISTEMA ACTIVO</span>
+                        </div>
+                        <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">// 05 Conexión</span>
+                        <h2 class="font-display-lg text-4xl lg:text-5xl text-primary leading-tight">
+                            Conexión Directa.
+                        </h2>
+                        <p class="font-body-lg text-neutral-400 max-w-md mt-2">
+                            Arquitectando el próximo flujo de tu empresa. Inicia una consulta técnica para evaluar viabilidad y alcance.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col gap-md font-label-mono text-label-mono text-neutral-400">
+                        <div class="flex flex-col gap-xs p-md border border-[#222222] bg-[#111111] relative group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                            <span class="text-white uppercase">Protocolo de Respuesta</span>
+                            <span>SLA: 24 - 48 HORAS</span>
+                            <span>ENCRIPTACIÓN: ACTIVA</span>
+                        </div>
+                        <div class="flex flex-col gap-xs p-md border border-[#222222] bg-[#111111]">
+                            <span class="text-white uppercase">Coordenadas del Datacenter</span>
+                            <span>37.7749° N, 122.4194° W</span>
+                            <span>REGION: US-WEST-1</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Terminal Log Feedback -->
+                    <div class="hidden lg:flex flex-col gap-base p-md border border-[#222222] bg-[#0A0A0A] font-label-mono text-[10px] text-[#666666] h-32 overflow-y-auto mt-auto" id="terminalLog">
+                        <div>&gt; INICIALIZANDO CONEXIÓN SEGURA...</div>
+                        <div>&gt; ESPERANDO ENTRADA DE USUARIO...</div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Form -->
+                <div class="w-full lg:w-7/12 order-1 lg:order-2 flex justify-center lg:justify-end reveal-on-scroll">
+                    <form class="w-full max-w-lg bg-[#111111] p-lg border border-[#222222] flex flex-col gap-lg shadow-2xl relative" id="contactForm">
+                        <!-- Corner accents -->
+                        <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-white"></div>
+                        <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-white"></div>
+                        <div class="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white"></div>
+                        <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white"></div>
+                        
+                        <div class="flex flex-col gap-md">
+                            <!-- Field: Name -->
+                            <div class="flex flex-col gap-xs">
+                                <label class="font-label-mono text-label-mono text-neutral-400 uppercase" for="name">Identificador [Nombre]</label>
+                                <input class="bg-transparent border border-[#222222] p-sm text-white font-body-md focus:outline-none focus:border-white transition-colors peer" id="name" placeholder="Ingresa tu nombre" required="" type="text">
+                                <div class="h-0.5 w-0 bg-white transition-all duration-300 form-highlight"></div>
+                            </div>
+                            <!-- Field: Email -->
+                            <div class="flex flex-col gap-xs">
+                                <label class="font-label-mono text-label-mono text-neutral-400 uppercase" for="email">Enlace de Retorno [Email]</label>
+                                <input class="bg-transparent border border-[#222222] p-sm text-white font-body-md focus:outline-none focus:border-white transition-colors peer" id="email" placeholder="contacto@empresa.com" required="" type="email">
+                                <div class="h-0.5 w-0 bg-white transition-all duration-300 form-highlight"></div>
+                            </div>
+                            <!-- Field: Product -->
+                            <div class="flex flex-col gap-xs">
+                                <label class="font-label-mono text-label-mono text-neutral-400 uppercase" for="product">Vector de Interés [Servicio]</label>
+                                <select class="bg-[#111111] border border-[#222222] p-sm text-white font-body-md focus:outline-none focus:border-white transition-colors appearance-none cursor-pointer" id="product" required="">
+                                    <option disabled="" selected="" value="">Selecciona un servicio...</option>
+                                    <option value="workflows">Automation Workflows</option>
+                                    <option value="web">Web Development</option>
+                                    <option value="dashboards">Data Dashboards</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Bar -->
+                        <div class="w-full h-1 bg-[#222222] overflow-hidden">
+                            <div class="h-full bg-white w-0 transition-all duration-300 ease-out" id="formProgress"></div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button class="group relative bg-white text-black p-sm font-headline-md text-headline-md uppercase flex items-center justify-between hover:bg-neutral-200 transition-colors overflow-hidden" id="submitBtn" type="submit">
+                            <span class="relative z-10">Transmitir Consulta</span>
+                            <span class="material-symbols-outlined relative z-10 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        </button>
+                        
+                        <!-- Success Message (Hidden) -->
+                        <div class="hidden absolute inset-0 bg-[#111111] border border-[#222222] flex-col items-center justify-center gap-md z-20" id="successState">
+                            <div class="absolute top-0 left-0 w-4 h-4 border-t border-l border-white"></div>
+                            <div class="absolute top-0 right-0 w-4 h-4 border-t border-r border-white"></div>
+                            <div class="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white"></div>
+                            <div class="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white"></div>
+                            
+                            <span class="material-symbols-outlined text-[48px] text-white">check_circle</span>
+                            <h3 class="font-headline-lg-mobile text-white uppercase tracking-wider">Transmisión Exitosa</h3>
+                            <p class="font-label-mono text-neutral-400 text-center px-lg">Un agente se pondrá en contacto en T-menos 48 horas.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-surface-container-lowest border-t border-surface-container-highest py-xl">
+        <div class="max-w-container-max mx-auto px-md">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-lg mb-lg">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-xs mb-md">
+                        <img alt="Logo" class="h-6 w-auto object-contain invert mix-blend-screen" src="assets/logo.png"/>
+                        <span class="font-headline-md text-headline-md tracking-tighter uppercase text-primary">Hytera IA</span>
+                    </div>
+                    <p class="text-on-surface-variant max-w-sm font-body-md text-body-md">
+                        Sistemas de automatización inteligentes para operaciones de alta complejidad. Precisión técnica. Ejecución impecable.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-base">
+                    <h4 class="text-primary font-label-mono text-label-mono uppercase mb-sm">Navegación</h4>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#inicio">Inicio</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#servicios">Servicios</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#nosotros">Nosotros</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#metodologia">Metodología</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#faq">FAQ</a>
+                </div>
+                <div class="flex flex-col gap-base">
+                    <h4 class="text-primary font-label-mono text-label-mono uppercase mb-sm">Legal</h4>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="privacidad.html">Privacidad</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#contacto">Contacto</a>
+                </div>
+            </div>
+            <div class="pt-md border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-md">
+                <span class="text-label-mono font-label-mono text-on-surface-variant uppercase">© 2026 Hytera IA. Architectural grade AI.</span>
+                <div class="flex gap-md">
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">terminal</span>
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">monitoring</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Alpine.js for FAQ Accordion -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        // GSAP Floating Card Animations (Hero)
+        if (typeof gsap !== 'undefined') {
+            gsap.to("#float-card-1", {
+                y: -15,
+                duration: 3,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+            gsap.to("#float-card-2", {
+                y: 15,
+                duration: 4,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1,
+                delay: 1
+            });
+            
+            // GSAP Section Entrance Animations (ScrollTrigger)
+            gsap.registerPlugin(ScrollTrigger);
+            
+            document.querySelectorAll('section').forEach((sec) => {
+                const badge = sec.querySelector('span[class*="font-label-mono"]');
+                const title = sec.querySelector('h2');
+                const subtexts = sec.querySelectorAll('p');
+                const revealElements = sec.querySelectorAll('.reveal-on-scroll');
+                
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sec,
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    }
+                });
+                
+                if (badge) tl.from(badge, { opacity: 0, y: 15, duration: 0.5, ease: "power2.out" });
+                if (title) tl.from(title, { opacity: 0, y: 20, duration: 0.6, ease: "power2.out" }, "-=0.3");
+                if (subtexts.length > 0) tl.from(subtexts, { opacity: 0, y: 20, duration: 0.6, ease: "power2.out", stagger: 0.1 }, "-=0.3");
+                
+                if (revealElements.length > 0) {
+                    tl.to(revealElements, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.7,
+                        ease: "power2.out",
+                        stagger: 0.15
+                    }, "-=0.2");
+                }
+            });
+
+            // Smooth scroll for nav links & Scroll Trigger highlight active link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            sections.forEach(sec => {
+                const id = sec.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${id}"]`);
+                if (!navLink) return;
+                
+                ScrollTrigger.create({
+                    trigger: sec,
+                    start: "top 40%",
+                    end: "bottom 40%",
+                    onToggle: (self) => {
+                        if (self.isActive) {
+                            navLinks.forEach(l => {
+                                l.classList.remove('text-primary', 'font-bold');
+                                l.classList.add('text-on-surface-variant');
+                            });
+                            navLink.classList.remove('text-on-surface-variant');
+                            navLink.classList.add('text-primary', 'font-bold');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Particle Drift Canvas Logic
+        const canvas = document.getElementById('particle-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            const particleCount = 75;
+            let mouse = { x: null, y: null, radius: 150 };
+
+            function resizeCanvas() {
+                const section = canvas.parentElement;
+                canvas.width = section.offsetWidth;
+                canvas.height = section.offsetHeight;
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            canvas.addEventListener('mousemove', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = event.clientX - rect.left;
+                mouse.y = event.clientY - rect.top;
+            });
+
+            canvas.addEventListener('mouseleave', () => {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.8;
+                    this.speedY = (Math.random() - 0.5) * 0.8;
+                }
+
+                update() {
+                    if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                    if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (mouse.x != null && mouse.y != null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouse.radius) {
+                            const forceDirectionX = dx / distance;
+                            const forceDirectionY = dy / distance;
+                            const maxDistance = mouse.radius;
+                            const force = (maxDistance - distance) / maxDistance;
+                            const directionX = forceDirectionX * force * 0.5;
+                            const directionY = forceDirectionY * force * 0.5;
+                            
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 90) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - distance/90)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                            ctx.closePath();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateParticles);
+            }
+
+            init();
+            animateParticles();
+        }
+
+        // Radial Orbit Selector JS Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            let rotationAngle = 0;
+            let autoRotate = true;
+            let activeNodeId = null;
+            
+            const nodes = [
+                document.getElementById('orbit-node-1'),
+                document.getElementById('orbit-node-2'),
+                document.getElementById('orbit-node-3')
+            ];
+            
+            const cards = [
+                document.getElementById('detail-card-1'),
+                document.getElementById('detail-card-2'),
+                document.getElementById('detail-card-3')
+            ];
+            
+            const centerHub = document.getElementById('center-hub-node');
+            
+            function updateNodePositions() {
+                // Responsiveness logic for radius
+                let radius = 230;
+                if (window.innerWidth < 640) {
+                    radius = activeNodeId !== null ? 100 : 115;
+                } else {
+                    if (activeNodeId !== null) {
+                        // Intermediate desktop screens and large screens when split layout is active
+                        radius = window.innerWidth < 1280 ? 160 : 200;
+                    } else {
+                        radius = 230;
+                    }
+                }
+                
+                nodes.forEach((node, index) => {
+                    const angle = (index * 120 + rotationAngle) % 360;
+                    const radian = (angle * Math.PI) / 180;
+                    const x = radius * Math.cos(radian);
+                    const y = radius * Math.sin(radian);
+                    
+                    node.style.transform = `translate(${x}px, ${y}px)`;
+                    
+                    // zIndex and Opacity calculations
+                    const zIndex = Math.round(100 + 50 * Math.cos(radian));
+                    const opacity = Math.max(0.45, Math.min(1, 0.45 + 0.55 * ((1 + Math.sin(radian)) / 2)));
+                    
+                    node.style.zIndex = zIndex;
+                    
+                    const highlight = node.querySelector('.node-highlight');
+                    const innerCircle = node.querySelector('.inner-node-circle');
+                    const label = node.querySelector('.node-label');
+                    
+                    if (activeNodeId === index + 1) {
+                        node.style.opacity = 1;
+                        if (highlight) highlight.style.opacity = 1;
+                        if (innerCircle) {
+                            innerCircle.className = "w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-white text-black border-white scale-125 transition-all duration-300 inner-node-circle";
+                            innerCircle.style.boxShadow = '0 0 25px rgba(255, 255, 255, 0.5)';
+                        }
+                        if (label) {
+                            label.className = "absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono tracking-wider text-white font-bold scale-110 transition-all duration-300 node-label";
+                        }
+                    } else {
+                        node.style.opacity = opacity;
+                        if (highlight) highlight.style.opacity = 0;
+                        if (innerCircle) {
+                            innerCircle.className = "w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle";
+                            innerCircle.style.boxShadow = 'none';
+                        }
+                        if (label) {
+                            label.className = "absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 transition-all duration-300 node-label";
+                        }
+                    }
+                });
+            }
+
+            function tick() {
+                if (autoRotate) {
+                    rotationAngle = (rotationAngle + 0.15) % 360;
+                    updateNodePositions();
+                }
+                requestAnimationFrame(tick);
+            }
+            
+            // Init positions
+            updateNodePositions();
+            requestAnimationFrame(tick);
+            
+            window.addEventListener('resize', updateNodePositions);
+
+            // Clicks on Nodes
+            nodes.forEach((node, index) => {
+                node.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const nodeId = index + 1;
+                    
+                    if (activeNodeId === nodeId) {
+                        deselectAll();
+                    } else {
+                        activeNodeId = nodeId;
+                        autoRotate = false;
+                        
+                        // Slide panels to left split layout (50/50 split)
+                        const leftPanel = document.getElementById('services-left-panel');
+                        const rightPanel = document.getElementById('services-right-panel');
+                        if (leftPanel && rightPanel) {
+                            leftPanel.classList.remove('lg:w-full');
+                            leftPanel.classList.add('lg:w-1/2');
+                            
+                            rightPanel.classList.remove('lg:w-0', 'opacity-0', 'pointer-events-none', 'h-0');
+                            rightPanel.classList.add('lg:w-1/2', 'opacity-100', 'pointer-events-auto', 'h-auto');
+                        }
+                        
+                        // Centering logic (Align to 270 deg / top of circle)
+                        let targetRotation = 270 - index * 120;
+                        let diff = (targetRotation - rotationAngle) % 360;
+                        if (diff > 180) diff -= 360;
+                        if (diff < -180) diff += 360;
+                        
+                        const finalRotation = rotationAngle + diff;
+                        
+                        gsap.to({ val: rotationAngle }, {
+                            val: finalRotation,
+                            duration: 0.6,
+                            ease: "power2.out",
+                            onUpdate: function() {
+                                rotationAngle = this.targets()[0].val % 360;
+                                updateNodePositions();
+                            },
+                            onComplete: () => {
+                                // Show selected detail card
+                                cards.forEach((card, cardIdx) => {
+                                    if (cardIdx === index) {
+                                        card.classList.remove('hidden');
+                                        gsap.fromTo(card, 
+                                            { opacity: 0, x: 20, scale: 0.95 },
+                                            { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: "power2.out" }
+                                        );
+                                    } else {
+                                        card.classList.add('hidden');
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
+            centerHub.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deselectAll();
+            });
+
+            document.getElementById('orbit-system-wrapper').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('orbit-system-wrapper')) {
+                    deselectAll();
+                }
+            });
+
+            function deselectAll() {
+                activeNodeId = null;
+                
+                // Slide panels back to full-width centered layout
+                const leftPanel = document.getElementById('services-left-panel');
+                const rightPanel = document.getElementById('services-right-panel');
+                if (leftPanel && rightPanel) {
+                    leftPanel.classList.remove('lg:w-1/2');
+                    leftPanel.classList.add('lg:w-full');
+                    
+                    rightPanel.classList.remove('lg:w-1/2', 'opacity-100', 'pointer-events-auto', 'h-auto');
+                    rightPanel.classList.add('lg:w-0', 'opacity-0', 'pointer-events-none', 'h-0');
+                }
+
+                cards.forEach(card => {
+                    if (!card.classList.contains('hidden')) {
+                        gsap.to(card, {
+                            opacity: 0,
+                            x: 20,
+                            scale: 0.95,
+                            duration: 0.3,
+                            ease: "power2.in",
+                            onComplete: () => {
+                                card.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+                
+                setTimeout(() => {
+                    autoRotate = true;
+                    updateNodePositions();
+                }, 300);
+            }
+        });
+
+        // Contact Form Interactive Simulator Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+            
+            const inputs = form.querySelectorAll('input, select');
+            const progressBar = document.getElementById('formProgress');
+            const terminalLog = document.getElementById('terminalLog');
+            const successState = document.getElementById('successState');
+            
+            const addLog = (msg) => {
+                if(!terminalLog) return;
+                const line = document.createElement('div');
+                line.textContent = `> ${msg}`;
+                terminalLog.appendChild(line);
+                terminalLog.scrollTop = terminalLog.scrollHeight;
+            };
+
+            const updateProgress = () => {
+                let filled = 0;
+                inputs.forEach(input => {
+                    if(input.value.trim() !== '') filled++;
+                });
+                const percent = (filled / inputs.length) * 100;
+                progressBar.style.width = `${percent}%`;
+            };
+
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    updateProgress();
+                    addLog(`DATO DETECTADO EN NODO: ${input.id.toUpperCase()}`);
+                });
+                input.addEventListener('focus', () => {
+                    addLog(`ACCEDIENDO A NODO: ${input.id.toUpperCase()}...`);
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                addLog('TRANSMITIENDO PAYLOAD A US-WEST-1...');
+                
+                const btn = document.getElementById('submitBtn');
+                const originalText = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = `<span class="material-symbols-outlined animate-spin mx-auto text-black">sync</span>`;
+                
+                setTimeout(() => {
+                    addLog('CONEXIÓN ESTABLECIDA. STATUS 200 (OK).');
+                    addLog('DATOS ENCRIPTADOS Y TRANSMITIDOS CORRECTAMENTE.');
+                    
+                    successState.classList.remove('hidden');
+                    successState.classList.add('flex');
+                    
+                    // Reset elements after simulation
+                    setTimeout(() => {
+                        form.reset();
+                        updateProgress();
+                        successState.classList.add('hidden');
+                        successState.classList.remove('flex');
+                        btn.disabled = false;
+                        btn.innerHTML = originalText;
+                        addLog('SESIÓN EN ESPERA DE NUEVOS DATOS...');
+                    }, 4000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
 </html>

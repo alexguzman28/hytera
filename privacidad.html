@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Política de Privacidad | Hytera IA</title>
+    <meta content="Normativas y protocolos de seguridad aplicados a la gestión de datos corporativos e industriales procesados a través de los sistemas de automatización de Hytera IA." name="description"/>
+    
+    <style>
+        @layer base {
+            html, body {
+                margin: 0;
+                padding: 0;
+                background-color: #131313;
+                overscroll-behavior: none;
+            }
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "secondary": "#c8c6c5",
+                        "surface-dim": "#131313",
+                        "primary": "#ffffff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#4a4949",
+                        "surface": "#131313",
+                        "surface-container": "#1f2020",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#303030",
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-bright": "#393939",
+                        "outline": "#8e9192",
+                        "on-secondary": "#313030",
+                        "on-tertiary": "#313030",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary-container": "#636565",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-tint": "#c6c6c7",
+                        "tertiary-container": "#e5e2e1",
+                        "background": "#131313",
+                        "outline-variant": "#444748",
+                        "on-secondary-container": "#bab8b7",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-variant": "#353535",
+                        "on-primary-fixed": "#1a1c1c",
+                        "surface-container-low": "#1b1c1c",
+                        "error-container": "#93000a",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-error": "#690005",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "on-tertiary-container": "#656464",
+                        "primary-container": "#e2e2e2",
+                        "tertiary": "#ffffff",
+                        "on-primary": "#2f3131"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "16px",
+                        "xl": "80px",
+                        "xs": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Geist"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-lg": ["Geist"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&amp;family=Geist:wght@400&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    
+    <!-- Add GSAP for floating animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-background antialiased selection:bg-primary selection:text-on-primary">
+    
+    <!-- Header Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-surface-container-highest transition-all duration-300">
+        <div class="h-20 max-w-container-max mx-auto px-md flex items-center justify-between">
+            <a class="flex items-center gap-xs cursor-pointer" href="index.html">
+                <img alt="Logo" class="h-8 w-auto object-contain invert mix-blend-screen" src="assets/logo.png"/>
+                <span class="font-headline-md text-headline-md tracking-tighter uppercase text-primary">Hytera IA</span>
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-lg">
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html#inicio">Inicio</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html#servicios">Servicios</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html#nosotros">Nosotros</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html#metodologia">Metodología</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html#faq">FAQ</a>
+                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="index.html#contacto">Contacto</a>
+            </nav>
+            
+            <div class="flex items-center gap-md">
+                <a href="index.html#contacto" class="hidden md:block bg-primary text-on-primary px-md py-xs text-label-mono font-label-mono uppercase tracking-widest hover:bg-surface-variant hover:text-primary transition-all">
+                    Agendar Auditoría
+                </a>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full pt-20 bg-background">
+        <div class="flex flex-col w-full relative overflow-hidden pb-xl">
+            
+            <!-- Background Grid Effect -->
+            <div class="absolute top-0 left-0 w-full h-[512px] pointer-events-none opacity-20 z-0">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222222" stroke-width="1"></path>
+                        </pattern>
+                        <lineargradient id="fade" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stop-color="#131313" stop-opacity="0"></stop>
+                            <stop offset="100%" stop-color="#131313" stop-opacity="1"></stop>
+                        </lineargradient>
+                    </defs>
+                    <rect fill="url(#grid)" height="100%" width="100%"></rect>
+                    <rect fill="url(#fade)" height="100%" width="100%"></rect>
+                </svg>
+            </div>
+            
+            <!-- Container -->
+            <div class="max-w-[800px] w-full mx-auto px-md pt-xl mt-lg relative z-10 flex flex-col gap-lg">
+                <!-- Header -->
+                <header class="flex flex-col gap-sm border-b border-surface-container-highest pb-lg">
+                    <div class="flex items-center gap-xs">
+                        <span class="w-1.5 h-1.5 bg-primary block"></span>
+                        <span class="text-label-mono font-label-mono text-on-surface-variant uppercase tracking-widest">Documento Legal</span>
+                    </div>
+                    <h1 class="text-display-lg text-4xl sm:text-display-lg font-display-lg text-primary text-balance">Política de Privacidad</h1>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mt-xs">
+                        Normativas y protocolos de seguridad aplicados a la gestión de datos corporativos e industriales procesados a través de los sistemas de automatización de Hytera IA.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-md mt-sm text-[11px] font-label-mono text-neutral-400 border border-[#222222] bg-surface-container-lowest py-xs px-sm self-start">
+                        <span class="material-symbols-outlined text-[16px] text-white">update</span>
+                        <span>Última actualización: Noviembre 2024</span>
+                        <span class="hidden sm:inline opacity-50">|</span>
+                        <span>Versión: 2.1.0-R</span>
+                    </div>
+                </header>
+                
+                <!-- Content -->
+                <article class="flex flex-col gap-xl">
+                    <!-- Section 1 -->
+                    <section class="flex flex-col md:flex-row gap-lg md:gap-gutter">
+                        <div class="md:w-1/4">
+                            <h2 class="text-label-mono font-label-mono text-primary uppercase md:sticky md:top-32">01. Responsable</h2>
+                        </div>
+                        <div class="md:w-3/4 flex flex-col gap-md">
+                            <p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                                Hytera IA, actuando como Responsable del Tratamiento, garantiza el estricto cumplimiento de las normativas de protección de datos aplicables a entornos corporativos de alta exigencia. La gestión de la infraestructura subyacente opera bajo estándares de seguridad de grado industrial.
+                            </p>
+                            <div class="bg-surface-container-lowest border border-[#222222] p-md flex flex-col gap-sm">
+                                <div class="flex items-center justify-between border-b border-[#222222] pb-xs">
+                                    <span class="text-label-mono font-label-mono text-on-surface-variant">Entidad</span>
+                                    <span class="text-body-md font-body-md text-primary">Hytera IA Corporation</span>
+                                </div>
+                                <div class="flex items-center justify-between border-b border-[#222222] pb-xs">
+                                    <span class="text-label-mono font-label-mono text-on-surface-variant">Contacto Legal</span>
+                                    <span class="text-body-md font-body-md text-primary">legal@hyteraia.com</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-label-mono font-label-mono text-on-surface-variant">DPO</span>
+                                    <span class="text-body-md font-body-md text-primary">dpo@hyteraia.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 2 -->
+                    <section class="flex flex-col md:flex-row gap-lg md:gap-gutter">
+                        <div class="md:w-1/4">
+                            <h2 class="text-label-mono font-label-mono text-primary uppercase md:sticky md:top-32">02. Datos Recopilados</h2>
+                        </div>
+                        <div class="md:w-3/4 flex flex-col gap-md">
+                            <p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                                Para la provisión de nuestros servicios de automatización e ingeniería de procesos, recopilamos diferentes categorías de información técnica y operativa. El volumen y naturaleza dependen de la arquitectura desplegada.
+                            </p>
+                            <ul class="flex flex-col gap-md">
+                                <li class="flex items-start gap-sm border-l border-[#222222] pl-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">dataset</span>
+                                    <div class="flex flex-col gap-xs">
+                                        <h3 class="text-headline-md font-headline-md text-primary text-base">Datos de Operación</h3>
+                                        <p class="text-body-md font-body-md text-on-surface-variant text-sm">Logs de sistemas, métricas de rendimiento de agentes de IA, y telemetría de automatización. Estos datos son efímeros por defecto y se purgan según los SLAs.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-sm border-l border-[#222222] pl-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">business_center</span>
+                                    <div class="flex flex-col gap-xs">
+                                        <h3 class="text-headline-md font-headline-md text-primary text-base">Información Corporativa</h3>
+                                        <p class="text-body-md font-body-md text-on-surface-variant text-sm">Datos de contacto, roles administrativos, e información de facturación necesaria para la gestión del contrato marco.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-sm border-l border-primary pl-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">memory</span>
+                                    <div class="flex flex-col gap-xs">
+                                        <h3 class="text-headline-md font-headline-md text-primary text-base">Vectores de Entrenamiento</h3>
+                                        <p class="text-body-md font-body-md text-on-surface-variant text-sm">Datasets específicos proporcionados por el cliente para el ajuste fino de modelos. Aislados criptográficamente por inquilino (tenant).</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 3 -->
+                    <section class="flex flex-col md:flex-row gap-lg md:gap-gutter">
+                        <div class="md:w-1/4">
+                            <h2 class="text-label-mono font-label-mono text-primary uppercase md:sticky md:top-32">03. Finalidad</h2>
+                        </div>
+                        <div class="md:w-3/4 flex flex-col gap-md">
+                            <p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                                El tratamiento de datos se limita estrictamente a las finalidades técnicas y operativas establecidas en los contratos de servicio, evitando cualquier monetización de terceros.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                                <div class="border border-[#222222] p-sm bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+                                    <div class="flex items-center gap-xs mb-sm">
+                                        <span class="w-1 h-4 bg-[#222222] group-hover:bg-primary transition-colors"></span>
+                                        <span class="text-label-mono font-label-mono text-primary">Ejecución del Servicio</span>
+                                    </div>
+                                    <p class="text-body-md font-body-md text-on-surface-variant text-xs">Despliegue y mantenimiento de los sistemas de inteligencia artificial contratados.</p>
+                                </div>
+                                <div class="border border-[#222222] p-sm bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+                                    <div class="flex items-center gap-xs mb-sm">
+                                        <span class="w-1 h-4 bg-[#222222] group-hover:bg-primary transition-colors"></span>
+                                        <span class="text-label-mono font-label-mono text-primary">Optimización de Modelos</span>
+                                    </div>
+                                    <p class="text-body-md font-body-md text-on-surface-variant text-xs">Mejora exclusiva de los algoritmos desplegados en la instancia específica del cliente.</p>
+                                </div>
+                                <div class="border border-[#222222] p-sm bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+                                    <div class="flex items-center gap-xs mb-sm">
+                                        <span class="w-1 h-4 bg-[#222222] group-hover:bg-primary transition-colors"></span>
+                                        <span class="text-label-mono font-label-mono text-primary">Auditoría y Seguridad</span>
+                                    </div>
+                                    <p class="text-body-md font-body-md text-on-surface-variant text-xs">Monitoreo activo para prevención de intrusiones y análisis de estabilidad del clúster.</p>
+                                </div>
+                                <div class="border border-[#222222] p-sm bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+                                    <div class="flex items-center gap-xs mb-sm">
+                                        <span class="w-1 h-4 bg-[#222222] group-hover:bg-primary transition-colors"></span>
+                                        <span class="text-label-mono font-label-mono text-primary">Soporte Técnico</span>
+                                    </div>
+                                    <p class="text-body-md font-body-md text-on-surface-variant text-xs">Resolución de incidencias L2/L3 mediante análisis de trazas de ejecución.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 4 -->
+                    <section class="flex flex-col md:flex-row gap-lg md:gap-gutter">
+                        <div class="md:w-1/4">
+                            <h2 class="text-label-mono font-label-mono text-primary uppercase md:sticky md:top-32">04. Confidencialidad</h2>
+                        </div>
+                        <div class="md:w-3/4 flex flex-col gap-md">
+                            <p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                                Operamos bajo un modelo de confianza cero (Zero Trust). Los datos de entrenamiento y las configuraciones de automatización de cada cliente permanecen criptográficamente separados.
+                            </p>
+                            <div class="bg-surface-container-lowest border border-[#222222] p-md relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-primary opacity-5 blur-3xl"></div>
+                                <div class="flex items-center gap-xs mb-md relative z-10">
+                                    <span class="material-symbols-outlined text-primary">shield_lock</span>
+                                    <h3 class="text-headline-md font-headline-md text-primary text-base">Política Anti-Fuga de Datos</h3>
+                                </div>
+                                <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed text-sm">
+                                    Ningún dato procesado o proporcionado por un cliente será utilizado para entrenar modelos fundacionales públicos (LLMs) ni será accesible por otros inquilinos bajo ninguna circunstancia. El 100% de la propiedad intelectual de los prompts generados, workflows creados y datasets depurados pertenece exclusivamente al cliente.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 5 -->
+                    <section class="flex flex-col md:flex-row gap-lg md:gap-gutter border-t border-surface-container-highest pt-lg">
+                        <div class="md:w-1/4">
+                            <h2 class="text-label-mono font-label-mono text-primary uppercase md:sticky md:top-32">05. Derechos</h2>
+                        </div>
+                        <div class="md:w-3/4 flex flex-col gap-md">
+                            <p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                                Como entidad corporativa o usuario final, usted mantiene control total sobre la información almacenada en nuestra infraestructura. Para ejercer los derechos ARCO, debe enviar una solicitud formal a través del portal de soporte o directamente a nuestro equipo legal.
+                            </p>
+                            <div class="flex flex-wrap gap-xs">
+                                <span class="border border-[#222222] px-sm py-xs text-[10px] font-label-mono text-neutral-400">Acceso</span>
+                                <span class="border border-[#222222] px-sm py-xs text-[10px] font-label-mono text-neutral-400">Rectificación</span>
+                                <span class="border border-[#222222] px-sm py-xs text-[10px] font-label-mono text-neutral-400">Cancelación</span>
+                                <span class="border border-[#222222] px-sm py-xs text-[10px] font-label-mono text-neutral-400">Oposición</span>
+                                <span class="border border-primary px-sm py-xs text-[10px] font-label-mono text-primary bg-primary/10">Portabilidad</span>
+                            </div>
+                            <div class="mt-sm">
+                                <a class="inline-flex items-center justify-center gap-xs bg-primary text-on-primary px-md py-xs text-label-mono font-label-mono uppercase tracking-widest hover:bg-surface-variant hover:text-primary transition-all" href="index.html#contacto">
+                                    Iniciar Solicitud
+                                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-surface-container-lowest border-t border-surface-container-highest py-xl">
+        <div class="max-w-container-max mx-auto px-md">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-lg mb-lg">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-xs mb-md">
+                        <img alt="Logo" class="h-6 w-auto object-contain invert mix-blend-screen" src="assets/logo.png"/>
+                        <span class="font-headline-md text-headline-md tracking-tighter uppercase text-primary">Hytera IA</span>
+                    </div>
+                    <p class="text-on-surface-variant max-w-sm font-body-md text-body-md">
+                        Sistemas de automatización inteligentes para operaciones de alta complejidad. Precisión técnica. Ejecución impecable.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-base">
+                    <h4 class="text-primary font-label-mono text-label-mono uppercase mb-sm">Navegación</h4>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="index.html#inicio">Inicio</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="index.html#servicios">Servicios</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="index.html#nosotros">Nosotros</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="index.html#metodologia">Metodología</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="index.html#faq">FAQ</a>
+                </div>
+                <div class="flex flex-col gap-base">
+                    <h4 class="text-primary font-label-mono text-label-mono uppercase mb-sm">Legal</h4>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="privacidad.html">Privacidad</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="index.html#contacto">Contacto</a>
+                </div>
+            </div>
+            <div class="pt-md border-t border-surface-container-highest flex flex-col md:flex-row justify-between items-center gap-md">
+                <span class="text-label-mono font-label-mono text-on-surface-variant uppercase">© 2026 Hytera IA. Architectural grade AI.</span>
+                <div class="flex gap-md">
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">terminal</span>
+                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">monitoring</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

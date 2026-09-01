@@ -14,17 +14,36 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.problem) return;
     
     setStatus('loading');
     
-    // Mock API call
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', problem: '' });
-    }, 1500);
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/info@hyteraia.lat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Nombre: formData.name,
+          Email: formData.email,
+          'Cuello de Botella / Problema': formData.problem
+        })
+      });
+      
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', problem: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -149,6 +168,13 @@ export default function Contact() {
                       className="minimal-input text-white text-sm md:text-base placeholder-neutral-700 resize-none"
                     />
                   </div>
+
+                  {/* Error state message */}
+                  {status === 'error' && (
+                    <div className="text-xs text-red-500 font-semibold tracking-wider text-center bg-red-950/20 border border-red-900/30 py-3 px-4 rounded-sm">
+                      Ocurrió un error al enviar el formulario. Por favor, intenta de nuevo o escribe directamente a <a href="mailto:info@hyteraia.lat" className="underline text-white font-bold hover:text-neutral-300">info@hyteraia.lat</a>.
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <button
