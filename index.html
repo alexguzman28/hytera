@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Hytera IA | Automatización de Negocios de Alta Precisión</title>
-    <meta content="Agencia de automatización de IA para empresas que buscan precisión técnica y eficiencia operativa industrial." name="description"/>
-    <meta content="Hytera IA | Business Automation" property="og:title"/>
-    <meta content="Ingeniería de procesos y despliegue de IA de grado industrial." property="og:description"/>
+    <title>Hytera IA | Arquitectura Digital & Inteligencia Autónoma</title>
+    <meta content="Agencia de automatización de IA e ingeniería digital de alta precisión para empresas en crecimiento." name="description"/>
+    <meta content="Hytera IA | Business Automation & AI Architecture" property="og:title"/>
+    <meta content="Ingeniería de procesos, workflows automatizados y despliegue de IA de grado industrial." property="og:description"/>
     <meta content="website" property="og:type"/>
     
     <style>
@@ -14,7 +14,8 @@
             html, body {
                 margin: 0;
                 padding: 0;
-                background-color: #131313;
+                background-color: #050505;
+                color: #ffffff;
                 overscroll-behavior: none;
             }
             ::-webkit-scrollbar {
@@ -37,15 +38,24 @@
             }
         }
         
-        /* Interactive styles */
+        /* Interactive styles & animations */
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px);
         }
-        
-        /* Form corner animations */
-        .peer:focus ~ .form-highlight {
-            width: 100%;
+
+        /* Cyber Mesh Grid background pattern */
+        .bg-cyber-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Focus rings for accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #000000;
         }
     </style>
     
@@ -55,347 +65,298 @@
             darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "error": "#ffb4ab",
-                        "secondary": "#c8c6c5",
-                        "surface-dim": "#131313",
-                        "primary": "#ffffff",
-                        "on-error-container": "#ffdad6",
-                        "secondary-container": "#4a4949",
-                        "surface": "#131313",
-                        "surface-container": "#1f2020",
-                        "on-secondary-fixed": "#1c1b1b",
-                        "inverse-on-surface": "#303030",
-                        "surface-container-highest": "#353535",
-                        "secondary-fixed-dim": "#c8c6c5",
-                        "surface-bright": "#393939",
-                        "outline": "#8e9192",
-                        "on-secondary": "#313030",
-                        "on-tertiary": "#313030",
-                        "on-surface": "#e5e2e1",
-                        "tertiary-fixed": "#e5e2e1",
-                        "on-primary-container": "#636565",
-                        "tertiary-fixed-dim": "#c8c6c5",
-                        "on-tertiary-fixed": "#1c1b1b",
-                        "primary-fixed-dim": "#c6c6c7",
-                        "secondary-fixed": "#e5e2e1",
-                        "on-surface-variant": "#c4c7c8",
-                        "surface-tint": "#c6c6c7",
-                        "tertiary-container": "#e5e2e1",
-                        "background": "#131313",
-                        "outline-variant": "#444748",
-                        "on-secondary-container": "#bab8b7",
-                        "on-secondary-fixed-variant": "#474646",
-                        "surface-container-high": "#2a2a2a",
-                        "on-background": "#e5e2e1",
-                        "inverse-surface": "#e5e2e1",
-                        "surface-variant": "#353535",
-                        "on-primary-fixed": "#1a1c1c",
-                        "surface-container-low": "#1b1c1c",
-                        "error-container": "#93000a",
-                        "on-primary-fixed-variant": "#454747",
-                        "on-error": "#690005",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-tertiary-fixed-variant": "#474746",
-                        "primary-fixed": "#e2e2e2",
-                        "inverse-primary": "#5d5f5f",
-                        "on-tertiary-container": "#656464",
-                        "primary-container": "#e2e2e2",
-                        "tertiary": "#ffffff",
-                        "on-primary": "#2f3131"
+                    colors: {
+                        background: "#050505",
+                        surface: "#0a0a0a",
+                        primary: "#ffffff",
+                        secondary: "#a78bfa",
+                        accent: "#00f0ff",
+                        "surface-container": "#111111",
+                        "surface-container-highest": "#222222",
+                        "on-surface-variant": "#a3a3a3",
+                        "outline-variant": "#333333"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem"
                     },
-                    "spacing": {
-                        "base": "4px",
-                        "sm": "16px",
-                        "xl": "80px",
-                        "xs": "8px",
+                    spacing: {
                         "container-max": "1280px",
                         "gutter": "24px",
                         "md": "24px",
-                        "lg": "48px"
+                        "lg": "48px",
+                        "xl": "80px"
                     },
-                    "fontFamily": {
-                        "display-lg": ["Hanken Grotesk"],
-                        "headline-lg-mobile": ["Hanken Grotesk"],
-                        "headline-lg": ["Hanken Grotesk"],
-                        "body-md": ["Geist"],
-                        "label-mono": ["JetBrains Mono"],
-                        "body-lg": ["Geist"],
-                        "headline-md": ["Hanken Grotesk"]
-                    },
-                    "fontSize": {
-                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
-                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"]
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&amp;family=Geist:wght@400&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
     
-    <!-- Add GSAP for floating & scroll triggered animations -->
+    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-background font-body-md text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<body class="bg-background font-sans text-white antialiased selection:bg-white selection:text-black">
     
     <!-- Header Navigation -->
-    <header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-surface-container-highest transition-all duration-300">
+    <header class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
         <div class="h-20 max-w-container-max mx-auto px-md flex items-center justify-between">
             <div class="flex items-center gap-xs cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <img alt="Logo" class="h-8 w-auto object-contain invert mix-blend-screen" src="assets/logo.png"/>
-                <span class="font-headline-md text-headline-md tracking-tighter uppercase text-primary">Hytera IA</span>
+                <img alt="Hytera IA Logo" class="h-8 w-auto object-contain invert mix-blend-screen" src="assets/logo.png"/>
+                <span class="font-mono text-sm font-bold tracking-tight uppercase text-white">Hytera IA</span>
             </div>
             
-            <nav class="hidden lg:flex items-center gap-lg">
-                <a class="text-label-mono font-label-mono uppercase tracking-widest text-primary font-bold transition-colors" href="#inicio">Inicio</a>
-                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#servicios">Servicios</a>
-                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
-                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#metodologia">Metodología</a>
-                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#faq">FAQ</a>
-                <a class="text-label-mono font-label-mono uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#contacto">Contacto</a>
+            <nav class="hidden lg:flex items-center gap-8">
+                <a class="font-mono text-xs uppercase tracking-widest text-white font-bold transition-colors hover:text-neutral-300" href="#inicio">Inicio</a>
+                <a class="font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors" href="#servicios">Capacidades</a>
+                <a class="font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors" href="#nosotros">Nosotros</a>
+                <a class="font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors" href="#metodologia">Metodología</a>
+                <a class="font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors" href="#faq">FAQ</a>
+                <a class="font-mono text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors" href="#contacto">Contacto</a>
             </nav>
             
             <div class="flex items-center gap-md">
-                <a href="#contacto" class="hidden md:block bg-primary text-on-primary px-md py-xs text-label-mono font-label-mono uppercase tracking-widest hover:bg-surface-variant hover:text-primary transition-all">
-                    Agendar Auditoría
+                <a href="#contacto" class="hidden md:flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-full font-mono text-xs uppercase tracking-wider font-bold hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                    <span>Agendar Auditoría</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                 </a>
-                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                    <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-                </div>
             </div>
         </div>
     </header>
 
     <main class="w-full bg-background overflow-x-hidden">
         
-        <!-- Hero Section -->
-        <section class="relative min-h-screen flex flex-col justify-center pb-xl pt-28 px-md md:px-lg lg:px-xl overflow-hidden" id="inicio">
-            <div class="absolute inset-0 z-0">
-                <canvas class="absolute inset-0 w-full h-full" id="particle-canvas"></canvas>
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10 pointer-events-none"></div>
-            </div>
-            
-            <!-- Floating Animated Cards (Visible on LG screens) -->
-            <div class="absolute inset-0 z-10 pointer-events-none max-w-container-max mx-auto hidden lg:block">
-                <div class="absolute top-[35%] right-[12%] bg-surface-container-lowest/80 backdrop-blur-sm border border-surface-container-highest px-md py-sm rounded-sm" id="float-card-1">
-                    <div class="flex flex-col gap-1">
-                        <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">Eficiencia</span>
-                        <span class="font-headline-md text-headline-md text-primary">+15 hrs</span>
+        <!-- Hero Section (Cyber Mesh & Interactive Agent Controller) -->
+        <section class="relative min-h-screen flex flex-col justify-center pb-xl pt-28 px-md md:px-lg lg:px-xl overflow-hidden bg-cyber-grid" id="inicio">
+            <!-- Glow Radial Background -->
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-white/10 via-purple-500/5 to-cyan-500/5 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+            <div class="max-w-container-max mx-auto w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-12 md:mt-0" x-data="{ agentStatus: 'OPERATIVO', activeTab: 1 }">
+                
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 flex flex-col items-start gap-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs font-mono">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-neutral-300 tracking-wider uppercase">Sistemas de IA Autónomos v3.0</span>
                     </div>
-                </div>
-                <div class="absolute bottom-[25%] right-[22%] bg-surface-container-lowest/80 backdrop-blur-sm border border-surface-container-highest px-md py-sm rounded-sm" id="float-card-2">
-                    <div class="flex flex-col gap-1">
-                        <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">Flujos 24/7</span>
-                        <span class="font-headline-md text-headline-md text-primary">0 Errores Manuales</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="max-w-container-max mx-auto w-full relative z-20 flex flex-col items-start gap-lg mt-16 md:mt-0">
-                <div class="flex items-center gap-xs">
-                    <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                    <span class="font-label-mono text-label-mono uppercase tracking-widest text-primary">Sistemas Inteligentes</span>
-                </div>
-                <div class="flex flex-col gap-sm">
-                    <h1 class="font-display-lg text-4xl sm:text-6xl lg:text-display-lg text-primary max-w-4xl tracking-tighter text-balance">
-                        Hytera IA - <span class="text-on-surface-variant font-light block sm:inline">Arquitectura digital inteligente</span>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] text-balance">
+                        Hytera IA — <span class="text-neutral-400 font-normal block sm:inline">Arquitectura digital inteligente.</span>
                     </h1>
-                    <p class="font-body-lg text-base sm:text-body-lg text-on-surface-variant max-w-2xl mt-4">
-                        Optimizamos la operación de tu empresa mediante ingeniería de procesos, automatización de flujos de trabajo, desarrollo web de alto rendimiento y dashboards de inteligencia de negocios en tiempo real.
+
+                    <p class="text-base sm:text-lg text-neutral-400 max-w-xl font-normal leading-relaxed">
+                        Optimizamos la operación de tu empresa mediante ingeniería de procesos, automatización de flujos de trabajo con IA, desarrollo web de alto rendimiento y dashboards en tiempo real.
                     </p>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
+                        <a href="#contacto" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-mono text-xs uppercase tracking-widest font-bold rounded-full hover:bg-neutral-200 transition-all flex items-center justify-center gap-2 group shadow-[0_0_30px_rgba(255,255,255,0.25)]">
+                            <span>Agendar Auditoría</span>
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                        <a href="#servicios" class="w-full sm:w-auto px-8 py-4 bg-[#0a0a0a] border border-white/20 text-white font-mono text-xs uppercase tracking-widest font-medium rounded-full hover:border-white/50 transition-all flex items-center justify-center">
+                            Explorar Capacidades
+                        </a>
+                    </div>
+
+                    <!-- Quick Metrics Ribbon -->
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10 w-full font-mono text-xs text-neutral-400 mt-2">
+                        <div>
+                            <span class="text-white font-bold text-base block font-sans">+15 hrs</span>
+                            <span>Ahorro Semanal</span>
+                        </div>
+                        <div>
+                            <span class="text-white font-bold text-base block font-sans">0%</span>
+                            <span>Error Manual</span>
+                        </div>
+                        <div>
+                            <span class="text-white font-bold text-base block font-sans">24 / 7</span>
+                            <span>Ejecución Activa</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col sm:flex-row items-center gap-md mt-8 w-full sm:w-auto">
-                    <a class="w-full sm:w-auto px-lg py-sm bg-primary text-on-primary font-label-mono text-label-mono uppercase tracking-widest hover:bg-surface-variant hover:text-primary transition-all flex items-center justify-center gap-xs group border border-primary" href="#contacto">
-                        Agendar SESIÓN<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </a>
-                    <a class="w-full sm:w-auto px-lg py-sm bg-transparent border border-outline-variant text-primary font-label-mono text-label-mono uppercase tracking-widest hover:bg-surface-container-highest transition-all flex items-center justify-center" href="#servicios">
-                        Ver Servicios
-                    </a>
+
+                <!-- Hero Right Column: Interactive Live Agent Controller Demo -->
+                <div class="lg:col-span-5 relative">
+                    <div class="bg-[#0c0c0c]/90 border border-white/20 rounded-2xl p-6 shadow-[0_25px_60px_rgba(0,0,0,0.9)] backdrop-blur-xl relative overflow-hidden flex flex-col justify-between min-h-[420px]">
+                        
+                        <!-- Header Bar -->
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                                <span class="font-mono text-xs text-neutral-400 ml-2">hytera-agent-control.sys</span>
+                            </div>
+                            <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 uppercase tracking-wider">
+                                ● PIPELINE LIVE
+                            </span>
+                        </div>
+
+                        <!-- Live Console Screen -->
+                        <div class="my-4 space-y-3">
+                            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 bg-black/60 p-3 rounded-lg border border-white/5">
+                                <span>ENTORNO: PROD-US-WEST</span>
+                                <span>LATENCIA: <strong class="text-white">12ms</strong></span>
+                            </div>
+
+                            <!-- Interactive Tab selector -->
+                            <div class="flex items-center gap-2 font-mono text-xs border-b border-white/10 pb-2">
+                                <button @click="activeTab = 1" :class="activeTab === 1 ? 'text-white border-b-2 border-white font-bold' : 'text-neutral-500 hover:text-neutral-300'" class="pb-1 transition-colors">01. Agente CRM</button>
+                                <button @click="activeTab = 2" :class="activeTab === 2 ? 'text-white border-b-2 border-white font-bold' : 'text-neutral-500 hover:text-neutral-300'" class="pb-1 transition-colors">02. Auto-Sync</button>
+                                <button @click="activeTab = 3" :class="activeTab === 3 ? 'text-white border-b-2 border-white font-bold' : 'text-neutral-500 hover:text-neutral-300'" class="pb-1 transition-colors">03. BI Engine</button>
+                            </div>
+
+                            <!-- Tab Content 1 -->
+                            <div x-show="activeTab === 1" class="font-mono text-xs text-neutral-300 space-y-2 p-3 bg-black/80 rounded-lg border border-white/10 min-h-[140px]">
+                                <div class="text-neutral-500">&gt; INICIANDO PIPELINE DE PROSPECCIÓN...</div>
+                                <div class="text-white">&gt; 128 NUEVOS LEADS VERIFICADOS VÍA API</div>
+                                <div class="text-neutral-400">&gt; ASIGNACIÓN AUTOMÁTICA EN CRM COMPLETA</div>
+                                <div class="text-emerald-400 font-bold">&gt; EXECUTION STATUS: SUCCESS (0.04s)</div>
+                            </div>
+
+                            <!-- Tab Content 2 -->
+                            <div x-show="activeTab === 2" class="font-mono text-xs text-neutral-300 space-y-2 p-3 bg-black/80 rounded-lg border border-white/10 min-h-[140px]">
+                                <div class="text-neutral-500">&gt; ESCANEANDO TABLAS DE INVENTARIO...</div>
+                                <div class="text-white">&gt; CONCILIACIÓN MULTI-PLATAFORMA EN TIEMPO REAL</div>
+                                <div class="text-neutral-400">&gt; WEBHOOKS DISPARADOS A FACTURACIÓN</div>
+                                <div class="text-emerald-400 font-bold">&gt; INVENTARIO SINCRONIZADO 100%</div>
+                            </div>
+
+                            <!-- Tab Content 3 -->
+                            <div x-show="activeTab === 3" class="font-mono text-xs text-neutral-300 space-y-2 p-3 bg-black/80 rounded-lg border border-white/10 min-h-[140px]">
+                                <div class="text-neutral-500">&gt; CALCULANDO KPIS DE RENDIMIENTO...</div>
+                                <div class="text-white">&gt; CONSOLIDACIÓN DE DATOS FINANCIEROS</div>
+                                <div class="text-neutral-400">&gt; PANEL DE CONTROL ACTUALIZADO EN VIVO</div>
+                                <div class="text-emerald-400 font-bold">&gt; METRICAS LISTAS PARA DELEGACIÓN</div>
+                            </div>
+                        </div>
+
+                        <!-- Footer Control -->
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-400">
+                            <span class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-white"></span> AES-256 ISOLATED
+                            </span>
+                            <span class="text-white hover:underline cursor-pointer" onclick="document.getElementById('servicios').scrollIntoView({behavior: 'smooth'})">VER ARQUITECTURA &rarr;</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="py-xl px-md md:px-lg lg:px-xl bg-black relative flex flex-col justify-center min-h-screen border-t border-surface-container-highest" id="servicios">
+        <!-- Services Section (Bento Grid 3.0 UI/UX Pro Max) -->
+        <section class="py-xl px-md md:px-lg lg:px-xl bg-black relative flex flex-col justify-center min-h-screen border-t border-white/10" id="servicios">
             <div class="max-w-container-max mx-auto w-full relative z-10">
-                <div class="flex flex-col gap-xs mb-6">
-                    <span class="font-label-mono text-label-mono text-primary uppercase tracking-widest">// 01 Capacidades</span>
-                    <div class="flex flex-col lg:flex-row justify-between items-start gap-lg">
-                        <!-- Title Column -->
-                        <div class="w-full lg:w-1/2">
-                            <h2 class="font-headline-lg text-4xl lg:text-headline-lg text-primary leading-tight">
-                                Arquitectura<br>Operativa
-                            </h2>
-                        </div>
-                        <!-- Paragraph Column -->
-                        <div class="w-full lg:w-1/2 lg:pl-12 flex justify-end">
-                            <p class="font-label-mono text-[10px] sm:text-xs text-on-surface-variant tracking-[0.2em] uppercase text-right leading-loose max-w-md">
-                                Soluciones<br>
-                                tecnológicas<br>
-                                diseñadas para<br>
-                                eliminar cuellos de<br>
-                                botella y escalar<br>
-                                operaciones<br>
-                                complejas sin<br>
-                                incrementar<br>
-                                headcount.
-                            </p>
-                        </div>
+                
+                <!-- Section Header -->
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-md mb-12">
+                    <div class="flex flex-col gap-xs">
+                        <span class="font-mono text-xs text-neutral-400 uppercase tracking-widest">// 01 CAPACIDADES TÉCNICAS</span>
+                        <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight mt-1">
+                            Arquitectura Operativa &amp; Soluciones
+                        </h2>
                     </div>
+                    <p class="text-sm text-neutral-400 max-w-md lg:text-right font-normal leading-relaxed">
+                        Soluciones tecnológicas diseñadas para eliminar cuellos de botella y escalar operaciones complejas sin incrementar headcount.
+                    </p>
                 </div>
 
-                <!-- Radial Orbit & Details Container -->
-                <div class="relative w-full flex flex-col lg:flex-row items-center justify-center gap-lg min-h-[580px] sm:min-h-[640px] overflow-visible reveal-on-scroll mt-2" id="services-interactive-container">
-                    <!-- Glow background -->
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0,transparent_70%)] pointer-events-none z-0">
-                    </div>
+                <!-- Bento Grid 3.0 Container -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal-on-scroll">
                     
-                    <!-- Left Panel (Orbit Container) -->
-                    <div class="w-full lg:w-full flex items-center justify-center transition-all duration-700 ease-in-out z-10" id="services-left-panel">
-                        <!-- Radial System Wrapper -->
-                        <div class="relative w-[580px] max-w-full h-[550px] sm:h-[600px] flex items-center justify-center" id="orbit-system-wrapper">
-                            <!-- Orbit Lines -->
-                            <div class="absolute w-[280px] h-[280px] sm:w-[480px] sm:h-[480px] rounded-full border border-white/10 shadow-[0_0_50px_rgba(255,255,255,0.02)] pointer-events-none"></div>
-                            <div class="absolute w-[290px] h-[290px] sm:w-[490px] sm:h-[490px] rounded-full border border-dashed border-white/5 animate-spin pointer-events-none" style="animation-duration: 80s"></div>
-                            
-                            <!-- Central Node -->
-                            <div class="absolute z-20 flex flex-col items-center justify-center cursor-pointer group" id="center-hub-node">
-                                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-black border border-white/30 flex flex-col items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.15)] relative transition-transform duration-300 group-hover:scale-105">
-                                    <div class="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-25"></div>
-                                    <div class="w-2.5 h-2.5 rounded-full bg-white mb-1 shadow-[0_0_8px_#ffffff]"></div>
-                                    <span class="font-mono text-xs font-black tracking-widest text-white">HYTERA</span>
-                                    <span class="font-mono text-[9px] tracking-widest text-neutral-400">IA</span>
-                                </div>
+                    <!-- Bento Card 1: Workflows & Agentic Pipelines (Large 7 cols) -->
+                    <div class="md:col-span-7 bg-[#0c0c0c] border border-white/10 rounded-2xl p-8 relative overflow-hidden group hover:border-white/30 transition-all duration-500 flex flex-col justify-between min-h-[380px]">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-all"></div>
+                        
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="font-mono text-xs text-neutral-400 border border-white/15 px-3 py-1 rounded-full uppercase">Automatización &amp; Conectividad</span>
+                                <span class="material-symbols-outlined text-[28px] text-white">schema</span>
                             </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight mb-3">Creación de Workflows Inteligentes</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed max-w-lg mb-6">
+                                Automatizamos e interconectamos tus herramientas empresariales (CRMs, bases de datos y mensajería) para eliminar tareas repetitivas y erradicar errores manuales.
+                            </p>
+                        </div>
 
-                            <!-- Orbiting Node 1 -->
-                            <div class="absolute cursor-pointer transition-all duration-300 flex flex-col items-center justify-center select-none" id="orbit-node-1" data-id="1">
-                                <div class="absolute rounded-full -inset-2 bg-white/10 opacity-0 scale-125 transition-all duration-300 node-highlight"></div>
-                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle">
-                                    <span class="material-symbols-outlined text-[22px] sm:text-[28px]">schema</span>
-                                </div>
-                                <div class="absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 node-label">
-                                    Workflows
-                                </div>
-                            </div>
-
-                            <!-- Orbiting Node 2 -->
-                            <div class="absolute cursor-pointer transition-all duration-300 flex flex-col items-center justify-center select-none" id="orbit-node-2" data-id="2">
-                                <div class="absolute rounded-full -inset-2 bg-white/10 opacity-0 scale-125 transition-all duration-300 node-highlight"></div>
-                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle">
-                                    <span class="material-symbols-outlined text-[22px] sm:text-[28px]">public</span>
-                                </div>
-                                <div class="absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 node-label">
-                                    Páginas Web
-                                </div>
-                            </div>
-
-                            <!-- Orbiting Node 3 -->
-                            <div class="absolute cursor-pointer transition-all duration-300 flex flex-col items-center justify-center select-none" id="orbit-node-3" data-id="3">
-                                <div class="absolute rounded-full -inset-2 bg-white/10 opacity-0 scale-125 transition-all duration-300 node-highlight"></div>
-                                <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle">
-                                    <span class="material-symbols-outlined text-[22px] sm:text-[28px]">dashboard</span>
-                                </div>
-                                <div class="absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 node-label">
-                                    Dashboards
-                                </div>
-                            </div>
+                        <!-- Capability badges -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/10 text-xs font-mono text-neutral-300">
+                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Multi-plataforma</span></div>
+                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Webhooks 24/7</span></div>
+                            <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Cero Error</span></div>
                         </div>
                     </div>
 
-                    <!-- Right Panel (Card Container) -->
-                    <div class="w-full lg:w-0 h-0 lg:h-auto opacity-0 pointer-events-none flex items-center justify-center lg:justify-start lg:pl-16 transition-all duration-700 ease-in-out z-20 overflow-visible" id="services-right-panel">
-                        <!-- Card 1 -->
-                        <div class="w-full max-w-[480px] bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white rounded-sm p-md sm:p-lg hidden relative service-detail-card" id="detail-card-1">
-                            <div class="flex justify-between items-center mb-xs sm:mb-sm">
-                                <span class="text-[9px] tracking-widest font-mono text-neutral-300 border border-white/20 rounded-full px-2.5 py-0.5 uppercase">Operaciones</span>
-                                <span class="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
-                                    <span class="material-symbols-outlined text-[12px] text-white">auto_awesome</span> ONLINE
-                                </span>
+                    <!-- Bento Card 2: Web Architecture (5 cols) -->
+                    <div class="md:col-span-5 bg-[#0c0c0c] border border-white/10 rounded-2xl p-8 relative overflow-hidden group hover:border-white/30 transition-all duration-500 flex flex-col justify-between min-h-[380px]">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none group-hover:bg-white/10 transition-all"></div>
+
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="font-mono text-xs text-neutral-400 border border-white/15 px-3 py-1 rounded-full uppercase">Presencia &amp; Conversión</span>
+                                <span class="material-symbols-outlined text-[28px] text-white">public</span>
                             </div>
-                            <h3 class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white mt-1">Creación de Workflows</h3>
-                            <p class="text-xs sm:text-sm text-neutral-400 mb-3 font-mono">Automatización & Conectividad</p>
-                            <div class="text-xs sm:text-sm lg:text-[15px] text-neutral-300 space-y-4">
-                                <p class="leading-relaxed">Automatizamos e interconectamos tus herramientas empresariales (CRMs, bases de datos y mensajería) para eliminar cuellos de botella y erradicar tareas repetitivas.</p>
-                                <div class="space-y-1.5 pt-3 border-t border-white/10">
-                                    <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-2">Capacidades Clave:</span>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Sincronización multi-plataforma</span></div>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Triggers y webhooks 24/7</span></div>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Eliminación de error manual</span></div>
-                                </div>
-                                <div class="pt-3">
-                                    <a href="#contacto" class="w-full h-11 text-xs sm:text-sm bg-white text-black hover:bg-neutral-200 font-semibold rounded-sm flex items-center justify-center gap-2 transition-colors">
-                                        Solicitar Diagnóstico <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-                                    </a>
-                                </div>
-                            </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight mb-3">Desarrollo Web Ultra-Rápido</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed mb-6">
+                                Construimos sitios web y landing pages de alto rendimiento con diseño minimalista, tiempos de carga < 1s y conexión directa a tus flujos comerciales.
+                            </p>
                         </div>
 
-                        <!-- Card 2 -->
-                        <div class="w-full max-w-[480px] bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white rounded-sm p-md sm:p-lg hidden relative service-detail-card" id="detail-card-2">
-                            <div class="flex justify-between items-center mb-xs sm:mb-sm">
-                                <span class="text-[9px] tracking-widest font-mono text-neutral-300 border border-white/20 rounded-full px-2.5 py-0.5 uppercase">Desarrollo</span>
-                                <span class="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
-                                    <span class="material-symbols-outlined text-[12px] text-white">auto_awesome</span> ONLINE
-                                </span>
-                            </div>
-                            <h3 class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white mt-1">Creación de Páginas Web</h3>
-                            <p class="text-xs sm:text-sm text-neutral-400 mb-3 font-mono">Presencia & Conversión Digital</p>
-                            <div class="text-xs sm:text-sm lg:text-[15px] text-neutral-300 space-y-4">
-                                <p class="leading-relaxed">Desarrollamos sitios web y landing pages ultra-rápidos con diseño minimalista y conexión directa a tus flujos automatizados de captación y ventas.</p>
-                                <div class="space-y-1.5 pt-3 border-t border-white/10">
-                                    <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-2">Capacidades Clave:</span>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Arquitectura moderna y responsive</span></div>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Optimización de conversión UX</span></div>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Integración con formularios y CRM</span></div>
-                                </div>
-                                <div class="pt-3">
-                                    <a href="#contacto" class="w-full h-11 text-xs sm:text-sm bg-white text-black hover:bg-neutral-200 font-semibold rounded-sm flex items-center justify-center gap-2 transition-colors">
-                                        Solicitar Diagnóstico <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="w-full max-w-[480px] bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-white rounded-sm p-md sm:p-lg hidden relative service-detail-card" id="detail-card-3">
-                            <div class="flex justify-between items-center mb-xs sm:mb-sm">
-                                <span class="text-[9px] tracking-widest font-mono text-neutral-300 border border-white/20 rounded-full px-2.5 py-0.5 uppercase">Datos & KPIs</span>
-                                <span class="text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
-                                    <span class="material-symbols-outlined text-[12px] text-white">auto_awesome</span> ONLINE
-                                </span>
-                            </div>
-                            <h3 class="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-white mt-1">Desarrollo de Dashboards</h3>
-                            <p class="text-xs sm:text-sm text-neutral-400 mb-3 font-mono">Inteligencia & Control en Tiempo Real</p>
-                            <div class="text-xs sm:text-sm lg:text-[15px] text-neutral-300 space-y-4">
-                                <p class="leading-relaxed">Modelamos y centralizamos las métricas críticas de tu negocio en paneles interactivos para facilitar la toma de decisiones estratégicas instantáneas.</p>
-                                <div class="space-y-1.5 pt-3 border-t border-white/10">
-                                    <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-2">Capacidades Clave:</span>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Consolidación de múltiples fuentes</span></div>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Visualización clara de KPIs</span></div>
-                                    <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white"></span><span>Reportes automatizados</span></div>
-                                </div>
-                                <div class="pt-3">
-                                    <a href="#contacto" class="w-full h-11 text-xs sm:text-sm bg-white text-black hover:bg-neutral-200 font-semibold rounded-sm flex items-center justify-center gap-2 transition-colors">
-                                        Solicitar Diagnóstico <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-300">
+                            <span>LIGHTHOUSE SCORE: <strong class="text-white">100/100</strong></span>
+                            <span class="text-neutral-400">SEO &amp; UX OPTIMIZED</span>
                         </div>
                     </div>
+
+                    <!-- Bento Card 3: Real-Time BI Dashboards (5 cols) -->
+                    <div class="md:col-span-5 bg-[#0c0c0c] border border-white/10 rounded-2xl p-8 relative overflow-hidden group hover:border-white/30 transition-all duration-500 flex flex-col justify-between min-h-[340px]">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="font-mono text-xs text-neutral-400 border border-white/15 px-3 py-1 rounded-full uppercase">Inteligencia &amp; KPIs</span>
+                                <span class="material-symbols-outlined text-[28px] text-white">dashboard</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight mb-3">Dashboards en Tiempo Real</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed mb-4">
+                                Centralizamos tus métricas críticas de negocio en paneles interactivos e intuitivos para tomar decisiones estratégicas instantáneas.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex items-center gap-4 text-xs font-mono text-neutral-300">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>Consolidación de Múltiples Fuentes</span>
+                        </div>
+                    </div>
+
+                    <!-- Bento Card 4: Security & Integrations (7 cols) -->
+                    <div class="md:col-span-7 bg-[#0c0c0c] border border-white/10 rounded-2xl p-8 relative overflow-hidden group hover:border-white/30 transition-all duration-500 flex flex-col justify-between min-h-[340px]">
+                        <div>
+                            <div class="flex items-center justify-between mb-6">
+                                <span class="font-mono text-xs text-neutral-400 border border-white/15 px-3 py-1 rounded-full uppercase">Seguridad &amp; Privacidad</span>
+                                <span class="material-symbols-outlined text-[28px] text-white">security</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight mb-3">Integraciones Aisladas &amp; Encriptadas</h3>
+                            <p class="text-sm text-neutral-400 leading-relaxed max-w-lg mb-4">
+                                Operamos bajo arquitectura Zero-Trust. Hytera IA actúa como un canal seguro de procesamiento de datos con encriptación activa AES-256 sin almacenar información sensible externa.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-4 text-xs font-mono text-neutral-300">
+                            <div>PROPIEDAD: <strong class="text-white">100% CLIENTE</strong></div>
+                            <div>ENCRIPTACIÓN: <strong class="text-white">AES-256 ACTIVA</strong></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -1227,201 +1188,6 @@
             init();
             animateParticles();
         }
-
-        // Radial Orbit Selector JS Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            let rotationAngle = 0;
-            let autoRotate = true;
-            let activeNodeId = null;
-            
-            const nodes = [
-                document.getElementById('orbit-node-1'),
-                document.getElementById('orbit-node-2'),
-                document.getElementById('orbit-node-3')
-            ];
-            
-            const cards = [
-                document.getElementById('detail-card-1'),
-                document.getElementById('detail-card-2'),
-                document.getElementById('detail-card-3')
-            ];
-            
-            const centerHub = document.getElementById('center-hub-node');
-            
-            function updateNodePositions() {
-                // Responsiveness logic for radius
-                let radius = 230;
-                if (window.innerWidth < 640) {
-                    radius = activeNodeId !== null ? 100 : 115;
-                } else {
-                    if (activeNodeId !== null) {
-                        // Intermediate desktop screens and large screens when split layout is active
-                        radius = window.innerWidth < 1280 ? 160 : 200;
-                    } else {
-                        radius = 230;
-                    }
-                }
-                
-                nodes.forEach((node, index) => {
-                    const angle = (index * 120 + rotationAngle) % 360;
-                    const radian = (angle * Math.PI) / 180;
-                    const x = radius * Math.cos(radian);
-                    const y = radius * Math.sin(radian);
-                    
-                    node.style.transform = `translate(${x}px, ${y}px)`;
-                    
-                    // zIndex and Opacity calculations
-                    const zIndex = Math.round(100 + 50 * Math.cos(radian));
-                    const opacity = Math.max(0.45, Math.min(1, 0.45 + 0.55 * ((1 + Math.sin(radian)) / 2)));
-                    
-                    node.style.zIndex = zIndex;
-                    
-                    const highlight = node.querySelector('.node-highlight');
-                    const innerCircle = node.querySelector('.inner-node-circle');
-                    const label = node.querySelector('.node-label');
-                    
-                    if (activeNodeId === index + 1) {
-                        node.style.opacity = 1;
-                        if (highlight) highlight.style.opacity = 1;
-                        if (innerCircle) {
-                            innerCircle.className = "w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-white text-black border-white scale-125 transition-all duration-300 inner-node-circle";
-                            innerCircle.style.boxShadow = '0 0 25px rgba(255, 255, 255, 0.5)';
-                        }
-                        if (label) {
-                            label.className = "absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono tracking-wider text-white font-bold scale-110 transition-all duration-300 node-label";
-                        }
-                    } else {
-                        node.style.opacity = opacity;
-                        if (highlight) highlight.style.opacity = 0;
-                        if (innerCircle) {
-                            innerCircle.className = "w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-2 bg-[#0a0a0a] text-white border-white/30 hover:border-white/80 hover:scale-110 transition-all duration-300 inner-node-circle";
-                            innerCircle.style.boxShadow = 'none';
-                        }
-                        if (label) {
-                            label.className = "absolute top-16 sm:top-20 whitespace-nowrap text-xs sm:text-sm font-mono font-medium tracking-wider text-neutral-400 transition-all duration-300 node-label";
-                        }
-                    }
-                });
-            }
-
-            function tick() {
-                if (autoRotate) {
-                    rotationAngle = (rotationAngle + 0.15) % 360;
-                    updateNodePositions();
-                }
-                requestAnimationFrame(tick);
-            }
-            
-            // Init positions
-            updateNodePositions();
-            requestAnimationFrame(tick);
-            
-            window.addEventListener('resize', updateNodePositions);
-
-            // Clicks on Nodes
-            nodes.forEach((node, index) => {
-                node.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const nodeId = index + 1;
-                    
-                    if (activeNodeId === nodeId) {
-                        deselectAll();
-                    } else {
-                        activeNodeId = nodeId;
-                        autoRotate = false;
-                        
-                        // Slide panels to left split layout (50/50 split)
-                        const leftPanel = document.getElementById('services-left-panel');
-                        const rightPanel = document.getElementById('services-right-panel');
-                        if (leftPanel && rightPanel) {
-                            leftPanel.classList.remove('lg:w-full');
-                            leftPanel.classList.add('lg:w-1/2');
-                            
-                            rightPanel.classList.remove('lg:w-0', 'opacity-0', 'pointer-events-none', 'h-0');
-                            rightPanel.classList.add('lg:w-1/2', 'opacity-100', 'pointer-events-auto', 'h-auto');
-                        }
-                        
-                        // Centering logic (Align to 270 deg / top of circle)
-                        let targetRotation = 270 - index * 120;
-                        let diff = (targetRotation - rotationAngle) % 360;
-                        if (diff > 180) diff -= 360;
-                        if (diff < -180) diff += 360;
-                        
-                        const finalRotation = rotationAngle + diff;
-                        
-                        gsap.to({ val: rotationAngle }, {
-                            val: finalRotation,
-                            duration: 0.6,
-                            ease: "power2.out",
-                            onUpdate: function() {
-                                rotationAngle = this.targets()[0].val % 360;
-                                updateNodePositions();
-                            },
-                            onComplete: () => {
-                                // Show selected detail card
-                                cards.forEach((card, cardIdx) => {
-                                    if (cardIdx === index) {
-                                        card.classList.remove('hidden');
-                                        gsap.fromTo(card, 
-                                            { opacity: 0, x: 20, scale: 0.95 },
-                                            { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: "power2.out" }
-                                        );
-                                    } else {
-                                        card.classList.add('hidden');
-                                    }
-                                });
-                            }
-                        });
-                    }
-                });
-            });
-
-            centerHub.addEventListener('click', (e) => {
-                e.stopPropagation();
-                deselectAll();
-            });
-
-            document.getElementById('orbit-system-wrapper').addEventListener('click', (e) => {
-                if (e.target === document.getElementById('orbit-system-wrapper')) {
-                    deselectAll();
-                }
-            });
-
-            function deselectAll() {
-                activeNodeId = null;
-                
-                // Slide panels back to full-width centered layout
-                const leftPanel = document.getElementById('services-left-panel');
-                const rightPanel = document.getElementById('services-right-panel');
-                if (leftPanel && rightPanel) {
-                    leftPanel.classList.remove('lg:w-1/2');
-                    leftPanel.classList.add('lg:w-full');
-                    
-                    rightPanel.classList.remove('lg:w-1/2', 'opacity-100', 'pointer-events-auto', 'h-auto');
-                    rightPanel.classList.add('lg:w-0', 'opacity-0', 'pointer-events-none', 'h-0');
-                }
-
-                cards.forEach(card => {
-                    if (!card.classList.contains('hidden')) {
-                        gsap.to(card, {
-                            opacity: 0,
-                            x: 20,
-                            scale: 0.95,
-                            duration: 0.3,
-                            ease: "power2.in",
-                            onComplete: () => {
-                                card.classList.add('hidden');
-                            }
-                        });
-                    }
-                });
-                
-                setTimeout(() => {
-                    autoRotate = true;
-                    updateNodePositions();
-                }, 300);
-            }
-        });
 
         // Contact Form Interactive Simulator Logic
         document.addEventListener('DOMContentLoaded', () => {
