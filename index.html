@@ -137,29 +137,32 @@
 
     <main class="w-full bg-background overflow-x-hidden">
         
-        <!-- Hero Section (Cyber Mesh & Interactive Agent Controller) -->
-        <section class="relative min-h-screen flex flex-col justify-center pb-xl pt-28 px-md md:px-lg lg:px-xl overflow-hidden bg-cyber-grid" id="inicio">
+        <!-- Hero Section (Kinetic Physics Network Canvas Background) -->
+        <section class="relative min-h-screen flex flex-col justify-center pb-xl pt-28 px-md md:px-lg lg:px-xl overflow-hidden cursor-crosshair" id="inicio">
+            <!-- Kinetic Physics Canvas Background -->
+            <canvas class="absolute inset-0 w-full h-full z-0 pointer-events-auto" id="kinetic-grid-canvas"></canvas>
+            
             <!-- Glow Radial Background -->
             <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-white/10 via-purple-500/5 to-cyan-500/5 rounded-full blur-3xl pointer-events-none z-0"></div>
 
-            <div class="max-w-container-max mx-auto w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-12 md:mt-0" x-data="{ agentStatus: 'OPERATIVO', activeTab: 1 }">
+            <div class="max-w-container-max mx-auto w-full relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-12 md:mt-0 pointer-events-none" x-data="{ agentStatus: 'OPERATIVO', activeTab: 1 }">
                 
                 <!-- Hero Left Column -->
-                <div class="lg:col-span-7 flex flex-col items-start gap-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs font-mono">
+                <div class="lg:col-span-7 flex flex-col items-start gap-6 pointer-events-none">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-xs font-mono pointer-events-auto">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span class="text-neutral-300 tracking-wider uppercase">Sistemas de IA Autónomos v3.0</span>
                     </div>
 
-                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] text-balance">
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] text-balance pointer-events-auto">
                         Hytera IA — <span class="text-neutral-400 font-normal block sm:inline">Arquitectura digital inteligente.</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-neutral-400 max-w-xl font-normal leading-relaxed">
-                        Optimizamos la operación de tu empresa mediante ingeniería de procesos, automatización de flujos de trabajo con IA, desarrollo web de alto rendimiento y dashboards en tiempo real.
+                    <p class="text-base sm:text-lg text-neutral-400 max-w-xl font-normal leading-relaxed pointer-events-auto">
+                        Optimizamos la operación de tu empresa mediante ingeniería de procesos, automatización de flujos de trabajo con IA, desarrollo web de alto rendimiento y dashboards en tiempo real. Mueve el cursor para interactuar con la red cinética.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto">
+                    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4 w-full sm:w-auto pointer-events-auto">
                         <a href="#contacto" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-mono text-xs uppercase tracking-widest font-bold rounded-full hover:bg-neutral-200 transition-all flex items-center justify-center gap-2 group shadow-[0_0_30px_rgba(255,255,255,0.25)]">
                             <span>Agendar Auditoría</span>
                             <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -170,7 +173,7 @@
                     </div>
 
                     <!-- Quick Metrics Ribbon -->
-                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10 w-full font-mono text-xs text-neutral-400 mt-2">
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10 w-full font-mono text-xs text-neutral-400 mt-2 pointer-events-auto">
                         <div>
                             <span class="text-white font-bold text-base block font-sans">+15 hrs</span>
                             <span>Ahorro Semanal</span>
@@ -1082,112 +1085,214 @@
             });
         }
 
-        // Particle Drift Canvas Logic
-        const canvas = document.getElementById('particle-canvas');
-        if (canvas) {
+        // Kinetic Physics Network Canvas Engine
+        (function() {
+            const canvas = document.getElementById('kinetic-grid-canvas');
+            if (!canvas) return;
             const ctx = canvas.getContext('2d');
-            let particles = [];
-            const particleCount = 75;
-            let mouse = { x: null, y: null, radius: 150 };
 
-            function resizeCanvas() {
-                const section = canvas.parentElement;
-                canvas.width = section.offsetWidth;
-                canvas.height = section.offsetHeight;
+            const SPACING = 55;
+            const SPRING_K = 18;
+            const DAMPING = 0.82;
+            const REPEL_RADIUS = 220;
+            const RADAR_RADIUS = 90;
+            const CONN_DIST = 75;
+            const CONN_DIST_SQ = CONN_DIST * CONN_DIST;
+
+            let width = 0;
+            let height = 0;
+            let dpr = 1;
+            let nodes = [];
+            let lastTime = performance.now();
+
+            let mouse = {
+                x: -1000,
+                y: -1000,
+                prevX: -1000,
+                prevY: -1000,
+                vx: 0,
+                vy: 0,
+                speed: 0,
+                active: false
+            };
+
+            function getIsDarkMode() {
+                return document.documentElement.classList.contains('dark') || 
+                       window.matchMedia('(prefers-color-scheme: dark)').matches || 
+                       true;
             }
 
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
+            function initGrid() {
+                const rect = canvas.parentElement.getBoundingClientRect();
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                width = rect.width;
+                height = rect.height;
+                canvas.width = width * dpr;
+                canvas.height = height * dpr;
+                canvas.style.width = width + 'px';
+                canvas.style.height = height + 'px';
 
-            canvas.addEventListener('mousemove', (event) => {
-                const rect = canvas.getBoundingClientRect();
-                mouse.x = event.clientX - rect.left;
-                mouse.y = event.clientY - rect.top;
-            });
-
-            canvas.addEventListener('mouseleave', () => {
-                mouse.x = null;
-                mouse.y = null;
-            });
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 0.8;
-                    this.speedY = (Math.random() - 0.5) * 0.8;
-                }
-
-                update() {
-                    if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-                    if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-
-                    if (mouse.x != null && mouse.y != null) {
-                        let dx = mouse.x - this.x;
-                        let dy = mouse.y - this.y;
-                        let distance = Math.sqrt(dx * dx + dy * dy);
-                        if (distance < mouse.radius) {
-                            const forceDirectionX = dx / distance;
-                            const forceDirectionY = dy / distance;
-                            const maxDistance = mouse.radius;
-                            const force = (maxDistance - distance) / maxDistance;
-                            const directionX = forceDirectionX * force * 0.5;
-                            const directionY = forceDirectionY * force * 0.5;
-                            
-                            this.x -= directionX;
-                            this.y -= directionY;
-                        }
-                    }
-                }
-
-                draw() {
-                    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-
-            function init() {
-                particles = [];
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const cols = Math.floor(width / SPACING) + 2;
+                const rows = Math.floor(height / SPACING) + 2;
                 
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
+                nodes = [];
+                for (let i = 0; i < cols; i++) {
+                    for (let j = 0; j < rows; j++) {
+                        const baseX = i * SPACING;
+                        const baseY = j * SPACING;
+                        nodes.push({
+                            i, j,
+                            baseX, baseY,
+                            x: baseX,
+                            y: baseY,
+                            vx: 0,
+                            vy: 0,
+                            radius: Math.random() * 1.2 + 1.2,
+                            hex: `${(i * 7).toString(16).toUpperCase()}:${(j * 11).toString(16).toUpperCase()}`,
+                            pulse: Math.random() * Math.PI * 2
+                        });
+                    }
+                }
+            }
+
+            window.addEventListener('resize', initGrid);
+            initGrid();
+
+            const heroSection = canvas.parentElement;
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const mx = e.clientX - rect.left;
+                const my = e.clientY - rect.top;
+                
+                if (mouse.active) {
+                    mouse.vx = mx - mouse.prevX;
+                    mouse.vy = my - mouse.prevY;
+                    mouse.speed = Math.sqrt(mouse.vx * mouse.vx + mouse.vy * mouse.vy);
+                } else {
+                    mouse.vx = 0;
+                    mouse.vy = 0;
+                    mouse.speed = 0;
+                    mouse.active = true;
+                }
+                
+                mouse.x = mx;
+                mouse.y = my;
+                mouse.prevX = mx;
+                mouse.prevY = my;
+            });
+
+            heroSection.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+                mouse.active = false;
+                mouse.speed = 0;
+            });
+
+            function animate(now) {
+                let dt = (now - lastTime) / 1000;
+                if (dt > 0.05) dt = 0.05;
+                lastTime = now;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.save();
+                ctx.scale(dpr, dpr);
+
+                const isDarkMode = getIsDarkMode();
+                const baseNodeColor = isDarkMode ? '255, 255, 255' : '15, 23, 42';
+                const accentColor = isDarkMode ? '255, 255, 255' : '2, 132, 199';
+
+                for (let n = 0; n < nodes.length; n++) {
+                    const node = nodes[n];
+                    node.pulse += dt * 2;
+
+                    const dx = node.x - mouse.x;
+                    const dy = node.y - mouse.y;
+                    const distSq = dx * dx + dy * dy;
+                    const dist = Math.sqrt(distSq);
+
+                    if (mouse.active && dist < REPEL_RADIUS && dist > 0) {
+                        const power = 1 - (dist / REPEL_RADIUS);
+                        const force = power * (1500 + mouse.speed * 150);
+                        const angle = Math.atan2(dy, dx);
+                        node.vx += Math.cos(angle) * force * dt;
+                        node.vy += Math.sin(angle) * force * dt;
+                    }
+
+                    const ax = (node.baseX - node.x) * SPRING_K;
+                    const ay = (node.baseY - node.y) * SPRING_K;
                     
-                    for (let j = i; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 90) {
+                    node.vx += ax * dt;
+                    node.vy += ay * dt;
+                    node.vx *= DAMPING;
+                    node.vy *= DAMPING;
+
+                    node.x += node.vx * dt * 60;
+                    node.y += node.vy * dt * 60;
+                }
+
+                ctx.lineWidth = 0.7;
+                for (let i = 0; i < nodes.length; i++) {
+                    const n1 = nodes[i];
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const n2 = nodes[j];
+                        const dx = n1.x - n2.x;
+                        const dy = n1.y - n2.y;
+                        const distSq = dx * dx + dy * dy;
+
+                        if (distSq < CONN_DIST_SQ) {
+                            const dist = Math.sqrt(distSq);
+                            const alpha = (1 - dist / CONN_DIST) * (isDarkMode ? 0.18 : 0.08);
+                            ctx.strokeStyle = `rgba(${accentColor}, ${alpha.toFixed(3)})`;
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - distance/90)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.moveTo(n1.x, n1.y);
+                            ctx.lineTo(n2.x, n2.y);
                             ctx.stroke();
-                            ctx.closePath();
                         }
                     }
                 }
-                requestAnimationFrame(animateParticles);
+
+                for (let i = 0; i < nodes.length; i++) {
+                    const node = nodes[i];
+                    const mDx = node.x - mouse.x;
+                    const mDy = node.y - mouse.y;
+                    const mDist = Math.sqrt(mDx * mDx + mDy * mDy);
+
+                    let currentRadius = node.radius;
+                    let nodeAlpha = 0.25 + Math.sin(node.pulse) * 0.1;
+
+                    if (mouse.active && mDist < REPEL_RADIUS) {
+                        const proxRatio = 1 - (mDist / REPEL_RADIUS);
+                        currentRadius = node.radius * (1 + proxRatio * 1.2);
+                        nodeAlpha = 0.25 + proxRatio * 0.7;
+                    }
+
+                    ctx.fillStyle = `rgba(${baseNodeColor}, ${nodeAlpha.toFixed(3)})`;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, currentRadius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    if (mouse.active && mDist < RADAR_RADIUS) {
+                        const pulseRing = ((node.pulse * 20) % 30) + 4;
+                        const ringAlpha = Math.max(0, (1 - pulseRing / 34) * 0.4);
+                        
+                        ctx.strokeStyle = `rgba(${accentColor}, ${ringAlpha.toFixed(3)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.arc(node.x, node.y, pulseRing, 0, Math.PI * 2);
+                        ctx.stroke();
+
+                        ctx.font = '8px monospace';
+                        ctx.fillStyle = `rgba(${baseNodeColor}, 0.85)`;
+                        ctx.fillText(node.hex, node.x + 10, node.y - 10);
+                    }
+                }
+
+                ctx.restore();
+                requestAnimationFrame(animate);
             }
 
-            init();
-            animateParticles();
-        }
+            requestAnimationFrame(animate);
+        })();
 
         // Contact Form Interactive Simulator Logic
         document.addEventListener('DOMContentLoaded', () => {
